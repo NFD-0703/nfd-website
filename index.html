@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFD Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --highlight-color: #50C7D2;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+    }
+
+    /* Hero 섹션 */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      background: url('images/00 Cover BG.jpg') no-repeat center center;
+      background-size: cover;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      transform: scale(1.05);
+      animation: drift 30s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      0%   { transform: scale(1.05) translate(0px, 0px); }
+      100% { transform: scale(1.12) translate(-30px, -20px); }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    .navbar {
+      background-color: transparent !important;
+      padding: 1rem 2rem;
+      z-index: 2;
+    }
+
+    .navbar-brand {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: white !important;
+    }
+
+    .navbar-nav {
+      gap: 2.5rem;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-size: 1.4rem;
+      padding: 0.5rem 1rem;
+      position: relative;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+      display: block;
+      height: 4px;
+      background-color: var(--highlight-color);
+      width: 0;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Content */
+    .hero-content {
+      margin: auto;
+      text-align: center;
+      padding: 0 1rem;
+      color: #fff;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .hero-content p {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    .get-started-btn img {
+      height: 56px;
+      transition: all 0.3s ease;
+    }
+
+    .get-started-btn:hover img {
+      content: url("images/Get Started 02.png");
+    }
+
+    .navbar-toggler {
+      border-color: #fff;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 80%;
+      }
+
+      .get-started-btn img {
+        height: 44.8px; /* 80% of 56px */
+      }
+
+      .navbar-nav {
+        gap: 1rem;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 1rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="overlay">
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="index.html""> NFD </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="hero-content container">
+        <h1>Drive Your Future<br>with Next Frontier Drive</h1>
+        <p>Experts in turning real estate visions into reality</p>
+        <a href="aboutUs.html" class="get-started-btn">
+          <img src="images/Get Started 01.png" alt="Get Started Button">
+        </a>
+      </div>
+
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
