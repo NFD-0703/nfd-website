@@ -107,8 +107,14 @@
 
     footer.logo-strip img {
       max-height: 50px;
-      margin: 0 2rem;
+      margin: 0 0.75rem;
       opacity: 0.85;
+    }
+
+    footer.logo-strip img[alt="Client 01"] {
+      transform: scale(0.5);
+      transform-origin: center;
+      display: inline-block;
     }
 
 
@@ -125,9 +131,20 @@
         font-size: 1rem;
       }
 
+      footer.logo-strip {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem;
+        gap: 0;
+      }
+
       footer.logo-strip img {
-        margin: 1rem;
         max-height: 36px;
+        height: auto;
+        width: 48%;
+        object-fit: contain;
+        flex-shrink: 1;
       }
 
       .about-image {
@@ -150,10 +167,16 @@
       }
 
       footer.logo-strip img[alt="Client 01"] {
-      transform: scale(0.6);
-      transform-origin: center;
-      display: inline-block;
-    }
+        transform: scale(0.9);
+        transform-origin: center;
+        display: inline-block;
+      }
+
+      footer.logo-strip img[alt="Client 04"] {
+        transform: scale(0.9);
+        transform-origin: center;
+        display: inline-block;
+      }
     }
 
   </style>
@@ -224,8 +247,8 @@
   <!-- Footer Logos -->
   <footer class="logo-strip">
     <img src="images/Client 01.webp" alt="Client 01">
-    <img src="images/Client 02.webp" alt="Client 02">
-    <img src="images/Client 03.webp" alt="Client 03">
+    <!-- <img src="images/Client 02.webp" alt="Client 02">
+    <img src="images/Client 03.webp" alt="Client 03"> -->
     <img src="images/Client 04.webp" alt="Client 04">
   </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
