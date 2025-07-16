@@ -11,6 +11,12 @@
       --highlight-color: #50C7D2;
     }
 
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -91,6 +97,8 @@
 
     .project-wrapper.project2 .below-caption {
       margin-left: 1rem;
+      text-align: right;
+      padding-right: 0.3rem;
     }
 
     .project-block img {
@@ -233,6 +241,7 @@
     </div>
 </nav>
 
+<main class="d-flex flex-column justify-content-center flex-grow-1" style="margin-top: auto; margin-bottom: auto;">
   <!-- Section Header -->
   <div class="section-header">
     <h2 class="section-title">Our Work</h2>
@@ -258,6 +267,7 @@
       <a href="second-work.html"><img src="images/07 Our Work 02.webp" alt="Project 2"></a>
     </div>
   </div>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
