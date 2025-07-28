@@ -133,7 +133,7 @@
       margin-bottom: 1rem;
       font-size: 1.2rem;
       line-height: 1.8;
-      border-radius: 4px;
+      /* border-radius: 4px; */
     }
 
     .project-box ul {
@@ -146,6 +146,15 @@
       margin-bottom: 0.5rem;
     }
 
+    .project-box li::before {
+      content: "•";
+      color: black;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    
     .project-description {
       font-size: 1.1rem;
       line-height: 1.75;
@@ -214,16 +223,11 @@
       <div class="project-title">About Project</div>
       <div class="project-box">
         <ul>
-          <li>IT Capacity: 56MW / PUE Value: 1.39</li>
+          <li>Location: Ansan, South Korea</li>
+          <li>IT Capacity: 28MW</li>
+          <li>PUE Value: 1.39</li>
           <li>GFA: 25,982 sqm</li>
           <li>Basement: - /  Above Floors : 5</li>
-        </ul>
-      </div>
-      <div class="project-box-bottom">
-        <ul>
-          <li>Engineering Consulting</li>
-          <li>Lease Management</li>
-          <li>Project Management</li>
         </ul>
       </div>
       <div class="project-description">
