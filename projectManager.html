@@ -1,267 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Management - NFD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root {
-      --highlight-color: #50C7D2;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-
-    .navbar {
-      background-color: #000;
-      padding: 1rem 2rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #fff !important;
-    }
-
-    .navbar-nav {
-      gap: 2.5rem;
-    }
-
-    .navbar-nav .nav-link {
-      color: white !important;
-      font-size: 1.4rem;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-
-    .navbar-nav .nav-link.active::after {
-      content: "";
-      display: block;
-      height: 4px;
-      background-color: var(--highlight-color);
-      width: 100%;
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      border-radius: 2px;
-    }
-
-    .header-section {
-      background-color: #000;
-      color: #fff;
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .header-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid var(--highlight-color);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .header-section p {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .content-section {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-
-    .content-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .content-image {
-      flex: 1 1 40%;
-      min-width: 300px;
-      position: relative;
-      overflow: visible;
-    }
-    .overlay-bar {
-      position: absolute;
-      top: 0;
-      right: -30px;
-      width: 5px;
-      height: 120px;
-      background-color: var(--highlight-color);
-    }
-
-    .content-image img {
-      width: 110%;
-      max-width: none;
-      height: auto;
-      display: block;
-      margin-top: 40px;
-    }
-
-    .content-text {
-      flex: 1 1 55%;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .core-services {
-      /* border-left: 4px solid var(--highlight-color); */
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-      position: absolute;
-      top: 0;
-    }
-
-    .core-services h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--highlight-color);
-      margin-left: -0.8rem;
-    }
-
-    .core-services ul {
-      list-style: none;
-      padding-left: 2rem;
-      margin: 0;
-      margin-top: 1rem;
-    }
-
-    .core-services ul li {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .core-services ul li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.3rem;
-      width: 3px;
-      height: 1.2rem;
-      background-color: var(--highlight-color);
-      border-radius: 1px;
-    }
-
-    .description {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      margin-top: 25rem;
-      margin-left: 3.5rem;
-    }
-
-    @media (max-width: 768px) {
-      html {
-        font-size: 78%;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Management - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
       }
-      
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #000;
+      }
+
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff !important;
+      }
+
+      .navbar-nav {
+        gap: 2.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .header-section {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+
       .header-section h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        border-bottom: 3px solid var(--highlight-color);
+        display: inline-block;
+        padding-bottom: 0.5rem;
       }
 
-      .core-services {
-        position: static;
-        margin-bottom: 2rem;
+      .header-section p {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
       }
 
-      .description {
-        margin-top: 2rem;
+      .content-section {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
       }
 
-      .core-services h3 {
-        font-size: 1.3rem;
-      }
-
-      .core-services ul li {
-        font-size: 1rem;
-      }
-
-      .description {
-        font-size: 1.05rem;
-      }
-
-      .overlay-bar {
-        display: none;
+      .content-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
       }
 
       .content-image {
-        display: flex;
-        justify-content: center;
+        flex: 1 1 40%;
+        min-width: 300px;
+        position: relative;
+        overflow: visible;
+      }
+      .overlay-bar {
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 5px;
+        height: 120px;
+        background-color: var(--highlight-color);
       }
 
       .content-image img {
-        margin: 0 auto;
+        width: 110%;
+        max-width: none;
+        height: auto;
+        display: block;
+        margin-top: 40px;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="index.html""> NFD </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      .content-text {
+        flex: 1 1 55%;
+        min-width: 300px;
+        position: relative;
+      }
 
-  <!-- Header -->
-  <div class="header-section">
-    <h1>Project Management</h1>
-    <p>Service Details</p>
-  </div>
+      .core-services {
+        /* border-left: 4px solid var(--highlight-color); */
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        top: 0;
+      }
 
-  <!-- Content -->
-  <div class="content-section">
-    <div class="content-row">
-      <div class="content-image">
-        <img src="images/03 Project Management.webp" alt="Project Management Image">
-        <div class="overlay-bar"></div>
-      </div>
-      <div class="content-text">
-        <div class="core-services">
-          <h3>Core Services</h3>
-          <ul>
-            <li>Project Planning & Scheduling Management</li>
-            <li>Budgeting & Cost Control</li>
-            <li>Procurement & Contract Management</li>
-            <li>Risk Management & Mitigation</li>
-            <li>On-Site Construction Oversight</li>
-            <li>Stakeholder Coordination</li>
-            <li>Permitting & Regulatory Compliance</li>
-            <li>Project Closeout & Delivery</li>
+      .core-services h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--highlight-color);
+        margin-left: -0.8rem;
+      }
+
+      .core-services ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      .core-services ul li {
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .core-services ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        width: 3px;
+        height: 1.2rem;
+        background-color: var(--highlight-color);
+        border-radius: 1px;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-top: 25rem;
+        margin-left: 3.5rem;
+      }
+
+      /* Language Toggle (unified) */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 78%;
+        }
+
+        .header-section h1 {
+          font-size: 2rem;
+        }
+
+        .core-services {
+          position: static;
+          margin-bottom: 2rem;
+        }
+
+        .description {
+          margin-top: 2rem;
+        }
+
+        .core-services h3 {
+          font-size: 1.3rem;
+        }
+
+        .core-services ul li {
+          font-size: 1rem;
+        }
+
+        .description {
+          font-size: 1.05rem;
+        }
+
+        .overlay-bar {
+          display: none;
+        }
+
+        .content-image {
+          display: flex;
+          justify-content: center;
+        }
+
+        .content-image img {
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="services.html"
+                data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
+                >Our Work</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
           </ul>
+          <div
+            class="lang-toggle ms-lg-3"
+            role="group"
+            aria-label="Language selector"
+          >
+            <button
+              id="btnKO"
+              type="button"
+              class="lang-btn"
+              data-lang="ko"
+              aria-pressed="false"
+            >
+              KO
+            </button>
+            <button
+              id="btnEN"
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+          </div>
         </div>
-        <div class="description">
-          We specialize in delivering end-to-end construction project management services that ensure your projects are completed on time, within budget, and to the highest quality standards. With a focus on communication, coordination, and control, our experienced team guides each phase of your construction process—from concept to closeout.
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header-section">
+      <h1 data-i18n="pm.heading">Project Management</h1>
+      <p data-i18n="pm.subtitle">Service Details</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section">
+      <div class="content-row">
+        <div class="content-image">
+          <img
+            src="images/03 Project Management.webp"
+            alt="Project Management Image"
+          />
+          <div class="overlay-bar"></div>
+        </div>
+        <div class="content-text">
+          <div class="core-services">
+            <h3 data-i18n="pm.core">Core Services</h3>
+            <ul>
+              <li data-i18n="pm.li1">
+                Project Planning & Scheduling Management
+              </li>
+              <li data-i18n="pm.li2">Budgeting & Cost Control</li>
+              <li data-i18n="pm.li3">Procurement & Contract Management</li>
+              <li data-i18n="pm.li4">Risk Management & Mitigation</li>
+              <li data-i18n="pm.li5">On-Site Construction Oversight</li>
+              <li data-i18n="pm.li6">Stakeholder Coordination</li>
+              <li data-i18n="pm.li7">Permitting & Regulatory Compliance</li>
+              <li data-i18n="pm.li8">Project Closeout & Delivery</li>
+            </ul>
+          </div>
+          <div class="description" data-i18n="pm.desc">
+            We specialize in delivering end-to-end construction project
+            management services that ensure your projects are completed on time,
+            within budget, and to the highest quality standards. With a focus on
+            communication, coordination, and control, our experienced team
+            guides each phase of your construction process—from concept to
+            closeout.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script>
+      const I18N = {
+        en: {
+          "page.title": "Project Management - NFD",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.contact": "Contact",
+          "pm.heading": "Project Management",
+          "pm.subtitle": "Service Details",
+          "pm.core": "Core Services",
+          "pm.li1": "Project Planning & Scheduling Management",
+          "pm.li2": "Budgeting & Cost Control",
+          "pm.li3": "Procurement & Contract Management",
+          "pm.li4": "Risk Management & Mitigation",
+          "pm.li5": "On-Site Construction Oversight",
+          "pm.li6": "Stakeholder Coordination",
+          "pm.li7": "Permitting & Regulatory Compliance",
+          "pm.li8": "Project Closeout & Delivery",
+          "pm.desc":
+            "We specialize in delivering end-to-end construction project management services that ensure your projects are completed on time, within budget, and to the highest quality standards. With a focus on communication, coordination, and control, our experienced team guides each phase of your construction process—from concept to closeout.",
+        },
+        ko: {
+          "page.title": "프로젝트 매니지먼트 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.contact": "문의하기",
+          "pm.heading": "프로젝트 관리",
+          "pm.subtitle": "서비스 상세 내용",
+          "pm.core": "주요 서비스",
+          "pm.li1": "프로젝트 기획 및 일정 관리",
+          "pm.li2": "예산 수립 및 비용 관리",
+          "pm.li3": "조달 및 계약 관리",
+          "pm.li4": "리스크 관리 및 대응",
+          "pm.li5": "현장 공사 감독",
+          "pm.li6": "이해관계자 조율",
+          "pm.li7": "인허가 절차 및 규제 준수",
+          "pm.li8": "프로젝트 마무리 및 인도",
+          "pm.desc":
+            "저희의 프로젝트 관리 서비스는 프로젝트가 예산 내에서, 일정에 맞춰 최고의 품질 기준으로 완성되도록 보장하는 End-to-End 건설 프로젝트 관리 서비스를 전문적으로 제공합니다. 원활한 커뮤니케이션과 철저한 조율 체계적인 통제를 핵심으로 하여, 경험이 많은 팀이 개념 수립부터 프로젝트 완료까지 각 단계별로 꼼꼼하게 지원합니다.",
+        },
+      };
+
+      const LS_KEY = "siteLang";
+      const btnKO = document.getElementById("btnKO");
+      const btnEN = document.getElementById("btnEN");
+      const TRANSLATE_BODY = true;
+
+      function detectInitialLang() {
+        const saved = localStorage.getItem(LS_KEY);
+        if (saved === "ko" || saved === "en") return saved;
+        const nav = (navigator.language || "en").toLowerCase();
+        return nav.startsWith("ko") ? "ko" : "en";
+      }
+
+      function setLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        if (TRANSLATE_BODY) {
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const val = dict[key];
+            if (!val) return;
+            el.innerHTML = val.replace(/\n/g, "<br>");
+          });
+          if (dict["page.title"]) document.title = dict["page.title"];
+          document.documentElement.setAttribute("lang", lang);
+        }
+
+        const isKO = lang === "ko";
+        btnKO?.setAttribute("aria-pressed", String(isKO));
+        btnEN?.setAttribute("aria-pressed", String(!isKO));
+        localStorage.setItem(LS_KEY, lang);
+      }
+
+      btnKO?.addEventListener("click", () => setLang("ko"));
+      btnEN?.addEventListener("click", () => setLang("en"));
+
+      setLang(detectInitialLang());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

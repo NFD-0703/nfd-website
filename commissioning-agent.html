@@ -1,269 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Commissioning Agent - NFD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root {
-      --highlight-color: #50C7D2;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-
-    .navbar {
-      background-color: #000;
-      padding: 1rem 2rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #fff !important;
-    }
-
-    .navbar-nav {
-      gap: 2.5rem;
-    }
-
-    .navbar-nav .nav-link {
-      color: white !important;
-      font-size: 1.4rem;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-
-    .navbar-nav .nav-link.active::after {
-      content: "";
-      display: block;
-      height: 4px;
-      background-color: var(--highlight-color);
-      width: 100%;
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      border-radius: 2px;
-    }
-
-    .header-section {
-      background-color: #000;
-      color: #fff;
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .header-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid var(--highlight-color);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .header-section p {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .content-section {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-
-    .content-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .content-image {
-      flex: 1 1 40%;
-      min-width: 300px;
-      position: relative;
-      overflow: visible;
-    }
-    .overlay-bar {
-      position: absolute;
-      top: 0;
-      right: -30px;
-      width: 5px;
-      height: 120px;
-      background-color: var(--highlight-color);
-    }
-
-    .content-image img {
-      width: 110%;
-      max-width: none;
-      height: 80%;
-      max-height: 400px;
-      object-fit: cover;
-      display: block;
-      margin-top: 40px;
-    }
-
-    .content-text {
-      flex: 1 1 55%;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .core-services {
-      /* border-left: 4px solid var(--highlight-color); */
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-      position: absolute;
-      top: 0;
-    }
-
-    .core-services h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--highlight-color);
-      margin-left: -0.8rem;
-    }
-
-    .core-services ul {
-      list-style: none;
-      padding-left: 2rem;
-      margin: 0;
-      margin-top: 1rem;
-    }
-
-    .core-services ul li {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .core-services ul li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.3rem;
-      width: 3px;
-      height: 1.2rem;
-      background-color: var(--highlight-color);
-      border-radius: 1px;
-    }
-
-    .description {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      margin-top: 25rem;
-      margin-left: 3.5rem;
-    }
-
-    @media (max-width: 768px) {
-      html {
-        font-size: 78%;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commissioning Agent - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
       }
-      
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #000;
+      }
+
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff !important;
+      }
+
+      .navbar-nav {
+        gap: 2.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .header-section {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+
       .header-section h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        border-bottom: 3px solid var(--highlight-color);
+        display: inline-block;
+        padding-bottom: 0.5rem;
       }
 
-      .core-services {
-        position: static;
-        margin-bottom: 2rem;
+      .header-section p {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
       }
 
-      .description {
-        margin-top: 2rem;
+      .content-section {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
       }
 
-      .core-services h3 {
-        font-size: 1.3rem;
-      }
-
-      .core-services ul li {
-        font-size: 1rem;
-      }
-
-      .description {
-        font-size: 1.05rem;
-      }
-
-      .overlay-bar {
-        display: none;
+      .content-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
       }
 
       .content-image {
-        display: flex;
-        justify-content: center;
+        flex: 1 1 40%;
+        min-width: 300px;
+        position: relative;
+        overflow: visible;
+      }
+      .overlay-bar {
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 5px;
+        height: 120px;
+        background-color: var(--highlight-color);
       }
 
       .content-image img {
-        margin: 0 auto;
+        width: 110%;
+        max-width: none;
+        height: 80%;
+        max-height: 400px;
+        object-fit: cover;
+        display: block;
+        margin-top: 40px;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="index.html""> NFD </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      .content-text {
+        flex: 1 1 55%;
+        min-width: 300px;
+        position: relative;
+      }
 
-  <!-- Header -->
-  <div class="header-section">
-    <h1>Commissioning Agent</h1>
-    <p>Service Details</p>
-  </div>
+      .core-services {
+        /* border-left: 4px solid var(--highlight-color); */
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        top: 0;
+      }
 
-  <!-- Content -->
-  <div class="content-section">
-    <div class="content-row">
-      <div class="content-image">
-        <img src="images/05 Commissioning Agent.webp" alt="Commissioning Agent">
-        <div class="overlay-bar"></div>
-      </div>
-      <div class="content-text">
-        <div class="core-services">
-          <h3>Core Services</h3>
-          <ul>
-            <li>Commissioning Plan Development</li>
-            <li>Design Document Review</li>
-            <li>Construction Observation & Verification</li>
-            <li>Equipment Testing Coordination</li>
-            <li>Issue Tracking & Resolution</li>
-            <li>Operations & Maintenance (O&M) Review</li>
-            <li>System Documentation Verification</li>
-            <li>Training Program Oversight</li>
+      .core-services h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--highlight-color);
+        margin-left: -0.8rem;
+      }
+
+      .core-services ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      .core-services ul li {
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .core-services ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        width: 3px;
+        height: 1.2rem;
+        background-color: var(--highlight-color);
+        border-radius: 1px;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-top: 25rem;
+        margin-left: 3.5rem;
+      }
+
+      /* Language Toggle (unified) */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 78%;
+        }
+
+        .header-section h1 {
+          font-size: 2rem;
+        }
+
+        .core-services {
+          position: static;
+          margin-bottom: 2rem;
+        }
+
+        .description {
+          margin-top: 2rem;
+        }
+
+        .core-services h3 {
+          font-size: 1.3rem;
+        }
+
+        .core-services ul li {
+          font-size: 1rem;
+        }
+
+        .description {
+          font-size: 1.05rem;
+        }
+
+        .overlay-bar {
+          display: none;
+        }
+
+        .content-image {
+          display: flex;
+          justify-content: center;
+        }
+
+        .content-image img {
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="services.html"
+                data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
+                >Our Work</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
           </ul>
+          <div
+            class="lang-toggle ms-lg-3"
+            role="group"
+            aria-label="Language selector"
+          >
+            <button
+              id="btnKO"
+              type="button"
+              class="lang-btn"
+              data-lang="ko"
+              aria-pressed="false"
+            >
+              KO
+            </button>
+            <button
+              id="btnEN"
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+          </div>
         </div>
-        <div class="description">
-          We deliver a comprehensive range of professional engineering consulting services tailored to meet the evolving needs of our clients. Our expertise spans multiple disciplines, allowing us to support your projects from initial concept to completion with precision and insight.
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header-section">
+      <h1 data-i18n="ca.heading">Commissioning Agent</h1>
+      <p data-i18n="ca.subtitle">Service Details</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section">
+      <div class="content-row">
+        <div class="content-image">
+          <img
+            src="images/05 Commissioning Agent.webp"
+            alt="Commissioning Agent"
+          />
+          <div class="overlay-bar"></div>
+        </div>
+        <div class="content-text">
+          <div class="core-services">
+            <h3 data-i18n="ca.core">Core Services</h3>
+            <ul>
+              <li data-i18n="ca.li1">Commissioning Plan Development</li>
+              <li data-i18n="ca.li2">Design Document Review</li>
+              <li data-i18n="ca.li3">
+                Construction Observation & Verification
+              </li>
+              <li data-i18n="ca.li4">Equipment Testing Coordination</li>
+              <li data-i18n="ca.li5">Issue Tracking & Resolution</li>
+              <li data-i18n="ca.li6">Operations & Maintenance (O&M) Review</li>
+              <li data-i18n="ca.li7">System Documentation Verification</li>
+              <li data-i18n="ca.li8">Training Program Oversight</li>
+            </ul>
+          </div>
+          <div class="description" data-i18n="ca.desc">
+            We deliver a comprehensive range of professional engineering
+            consulting services tailored to meet the evolving needs of our
+            clients. Our expertise spans multiple disciplines, allowing us to
+            support your projects from initial concept to completion with
+            precision and insight.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script>
+      const I18N = {
+        en: {
+          "page.title": "Commissioning Agent - NFD",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.contact": "Contact",
+          "ca.heading": "Commissioning Agent",
+          "ca.subtitle": "Service Details",
+          "ca.core": "Core Services",
+          "ca.li1": "Commissioning Plan Development",
+          "ca.li2": "Design Document Review",
+          "ca.li3": "Construction Observation & Verification",
+          "ca.li4": "Equipment Testing Coordination",
+          "ca.li5": "Issue Tracking & Resolution",
+          "ca.li6": "Operations & Maintenance (O&M) Review",
+          "ca.li7": "System Documentation Verification",
+          "ca.li8": "Training Program Oversight",
+          "ca.desc":
+            "We deliver a comprehensive range of professional engineering consulting services tailored to meet the evolving needs of our clients. Our expertise spans multiple disciplines, allowing us to support your projects from initial concept to completion with precision and insight.",
+        },
+        ko: {
+          "page.title": "커미셔닝 에이전트 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.contact": "문의하기",
+          "ca.heading": "커미셔닝 에이전트",
+          "ca.subtitle": "서비스 상세 내용",
+          "ca.core": "주요 서비스",
+          "ca.li1": "커미셔닝 계획 수립",
+          "ca.li2": "설계 문서 검토",
+          "ca.li3": "공사 현장 관찰 및 검증",
+          "ca.li4": "장비 테스트 조율",
+          "ca.li5": "이슈 추적 및 해결",
+          "ca.li6": "운영 및 유지보수(O&M) 검토",
+          "ca.li7": "시스템 문서 검증",
+          "ca.li8": "교육 프로그램 감독",
+          "ca.desc":
+            "저희의 커미셔닝 에이전트 서비스는 고객의 변화하는 요구에 맞춘 종합적이고 전문적인 엔지니어링 컨설팅 서비스를 제공합니다. 다양한 분야의 전문성을 바탕으로 초기 개념 수립부터 프로젝트 완료까지 정밀하고 통찰력 있는 지원을 약속합니다",
+        },
+      };
+
+      const LS_KEY = "siteLang";
+      const btnKO = document.getElementById("btnKO");
+      const btnEN = document.getElementById("btnEN");
+      const TRANSLATE_BODY = true;
+
+      function detectInitialLang() {
+        const saved = localStorage.getItem(LS_KEY);
+        if (saved === "ko" || saved === "en") return saved;
+        const nav = (navigator.language || "en").toLowerCase();
+        return nav.startsWith("ko") ? "ko" : "en";
+      }
+
+      function setLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        if (TRANSLATE_BODY) {
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const val = dict[key];
+            if (!val) return;
+            el.innerHTML = val.replace(/\n/g, "<br>");
+          });
+          if (dict["page.title"]) document.title = dict["page.title"];
+          document.documentElement.setAttribute("lang", lang);
+        }
+
+        const isKO = lang === "ko";
+        btnKO?.setAttribute("aria-pressed", String(isKO));
+        btnEN?.setAttribute("aria-pressed", String(!isKO));
+        localStorage.setItem(LS_KEY, lang);
+      }
+
+      btnKO?.addEventListener("click", () => setLang("ko"));
+      btnEN?.addEventListener("click", () => setLang("en"));
+
+      setLang(detectInitialLang());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

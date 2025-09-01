@@ -1,269 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facility Management - NFD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root {
-      --highlight-color: #50C7D2;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-
-    .navbar {
-      background-color: #000;
-      padding: 1rem 2rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #fff !important;
-    }
-
-    .navbar-nav {
-      gap: 2.5rem;
-    }
-
-    .navbar-nav .nav-link {
-      color: white !important;
-      font-size: 1.4rem;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-
-    .navbar-nav .nav-link.active::after {
-      content: "";
-      display: block;
-      height: 4px;
-      background-color: var(--highlight-color);
-      width: 100%;
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      border-radius: 2px;
-    }
-
-    .header-section {
-      background-color: #000;
-      color: #fff;
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .header-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid var(--highlight-color);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .header-section p {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .content-section {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-
-    .content-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .content-image {
-      flex: 1 1 40%;
-      min-width: 300px;
-      position: relative;
-      overflow: visible;
-    }
-    .overlay-bar {
-      position: absolute;
-      top: 0;
-      right: -30px;
-      width: 5px;
-      height: 120px;
-      background-color: var(--highlight-color);
-    }
-
-    .content-image img {
-      width: 110%;
-      max-width: none;
-      height: 80%;
-      max-height: 400px;
-      object-fit: cover;
-      display: block;
-      margin-top: 40px;
-    }
-
-    .content-text {
-      flex: 1 1 55%;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .core-services {
-      /* border-left: 4px solid var(--highlight-color); */
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-      position: absolute;
-      top: 0;
-    }
-
-    .core-services h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--highlight-color);
-      margin-left: -0.8rem;
-    }
-
-    .core-services ul {
-      list-style: none;
-      padding-left: 2rem;
-      margin: 0;
-      margin-top: 1rem;
-    }
-
-    .core-services ul li {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .core-services ul li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.3rem;
-      width: 3px;
-      height: 1.2rem;
-      background-color: var(--highlight-color);
-      border-radius: 1px;
-    }
-
-    .description {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      margin-top: 25rem;
-      margin-left: 3.5rem;
-    }
-
-    @media (max-width: 768px) {
-      html {
-        font-size: 78%;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facility Management - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
       }
-      
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #000;
+      }
+
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff !important;
+      }
+
+      .navbar-nav {
+        gap: 2.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .header-section {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+
       .header-section h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        border-bottom: 3px solid var(--highlight-color);
+        display: inline-block;
+        padding-bottom: 0.5rem;
       }
 
-      .core-services {
-        position: static;
-        margin-bottom: 2rem;
+      .header-section p {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
       }
 
-      .description {
-        margin-top: 2rem;
+      .content-section {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
       }
 
-      .core-services h3 {
-        font-size: 1.3rem;
-      }
-
-      .core-services ul li {
-        font-size: 1rem;
-      }
-
-      .description {
-        font-size: 1.05rem;
-      }
-
-      .overlay-bar {
-        display: none;
+      .content-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
       }
 
       .content-image {
-        display: flex;
-        justify-content: center;
+        flex: 1 1 40%;
+        min-width: 300px;
+        position: relative;
+        overflow: visible;
+      }
+      .overlay-bar {
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 5px;
+        height: 120px;
+        background-color: var(--highlight-color);
       }
 
       .content-image img {
-        margin: 0 auto;
+        width: 110%;
+        max-width: none;
+        height: 80%;
+        max-height: 400px;
+        object-fit: cover;
+        display: block;
+        margin-top: 40px;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="index.html""> NFD </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      .content-text {
+        flex: 1 1 55%;
+        min-width: 300px;
+        position: relative;
+      }
 
-  <!-- Header -->
-  <div class="header-section">
-    <h1>Facility Management</h1>
-    <p>Service Details</p>
-  </div>
+      .core-services {
+        /* border-left: 4px solid var(--highlight-color); */
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        top: 0;
+      }
 
-  <!-- Content -->
-  <div class="content-section">
-    <div class="content-row">
-      <div class="content-image">
-        <img src="images/06 Facility Management.webp" alt="Facility Management">
-        <div class="overlay-bar"></div>
-      </div>
-      <div class="content-text">
-        <div class="core-services">
-          <h3>Core Services</h3>
-          <ul>
-            <li>Preventive & Predictive Maintenance</li>
-            <li>Vendor Coordination & Oversight</li>
-            <li>Facility Condition Assessments</li>
-            <li>Health, Safety & Compliance Monitoring</li>
-            <li>Budgeting & Cost Control</li>
-            <li>Energy Management & Sustainability Initiatives</li>
-            <li>Emergency Response Planning for 24/7</li>
-            <li>Asset Lifecycle Planning</li>
+      .core-services h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--highlight-color);
+        margin-left: -0.8rem;
+      }
+
+      .core-services ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      .core-services ul li {
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .core-services ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        width: 3px;
+        height: 1.2rem;
+        background-color: var(--highlight-color);
+        border-radius: 1px;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-top: 25rem;
+        margin-left: 3.5rem;
+      }
+
+      /* Language Toggle (unified) */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 78%;
+        }
+
+        .header-section h1 {
+          font-size: 2rem;
+        }
+
+        .core-services {
+          position: static;
+          margin-bottom: 2rem;
+        }
+
+        .description {
+          margin-top: 2rem;
+        }
+
+        .core-services h3 {
+          font-size: 1.3rem;
+        }
+
+        .core-services ul li {
+          font-size: 1rem;
+        }
+
+        .description {
+          font-size: 1.05rem;
+        }
+
+        .overlay-bar {
+          display: none;
+        }
+
+        .content-image {
+          display: flex;
+          justify-content: center;
+        }
+
+        .content-image img {
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="services.html"
+                data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
+                >Our Work</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
           </ul>
+          <div
+            class="lang-toggle ms-lg-3"
+            role="group"
+            aria-label="Language selector"
+          >
+            <button
+              id="btnKO"
+              type="button"
+              class="lang-btn"
+              data-lang="ko"
+              aria-pressed="false"
+            >
+              KO
+            </button>
+            <button
+              id="btnEN"
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+          </div>
         </div>
-        <div class="description">
-          our Facility Management services are designed to keep your buildings operating efficiently, safely, and sustainably. We provide strategic and hands-on support to maintain the performance, longevity, and value of your assets—so you can focus on core operations.
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header-section">
+      <h1 data-i18n="fm.heading">Facility Management</h1>
+      <p data-i18n="fm.subtitle">Service Details</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section">
+      <div class="content-row">
+        <div class="content-image">
+          <img
+            src="images/06 Facility Management.webp"
+            alt="Facility Management"
+          />
+          <div class="overlay-bar"></div>
+        </div>
+        <div class="content-text">
+          <div class="core-services">
+            <h3 data-i18n="fm.core">Core Services</h3>
+            <ul>
+              <li data-i18n="fm.li1">Preventive & Predictive Maintenance</li>
+              <li data-i18n="fm.li2">Vendor Coordination & Oversight</li>
+              <li data-i18n="fm.li3">Facility Condition Assessments</li>
+              <li data-i18n="fm.li4">Health, Safety & Compliance Monitoring</li>
+              <li data-i18n="fm.li5">Budgeting & Cost Control</li>
+              <li data-i18n="fm.li6">
+                Energy Management & Sustainability Initiatives
+              </li>
+              <li data-i18n="fm.li7">Emergency Response Planning for 24/7</li>
+              <li data-i18n="fm.li8">Asset Lifecycle Planning</li>
+            </ul>
+          </div>
+          <div class="description" data-i18n="fm.desc">
+            our Facility Management services are designed to keep your buildings
+            operating efficiently, safely, and sustainably. We provide strategic
+            and hands-on support to maintain the performance, longevity, and
+            value of your assets—so you can focus on core operations.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script>
+      const I18N = {
+        en: {
+          "page.title": "Facility Management - NFD",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.contact": "Contact",
+          "fm.heading": "Facility Management",
+          "fm.subtitle": "Service Details",
+          "fm.core": "Core Services",
+          "fm.li1": "Preventive & Predictive Maintenance",
+          "fm.li2": "Vendor Coordination & Oversight",
+          "fm.li3": "Facility Condition Assessments",
+          "fm.li4": "Health, Safety & Compliance Monitoring",
+          "fm.li5": "Budgeting & Cost Control",
+          "fm.li6": "Energy Management & Sustainability Initiatives",
+          "fm.li7": "Emergency Response Planning for 24/7",
+          "fm.li8": "Asset Lifecycle Planning",
+          "fm.desc":
+            "Our Facility Management services are designed to keep your buildings operating efficiently, safely, and sustainably. We provide strategic and hands-on support to maintain the performance, longevity, and value of your assets—so you can focus on core operations.",
+        },
+        ko: {
+          "page.title": "시설 운영 관리 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.contact": "문의하기",
+          "fm.heading": "시설 운영 관리",
+          "fm.subtitle": "서비스 상세 내용",
+          "fm.core": "주요 서비스",
+          "fm.li1": "예방 및 예측 유지보수",
+          "fm.li2": "협력업체 조율 및 감독",
+          "fm.li3": "시설 상태 평가",
+          "fm.li4": "보건, 안전 및 규정 준수 모니터링",
+          "fm.li5": "예산 수립 및 비용 관리",
+          "fm.li6": "에너지 관리 및 지속 가능성 추진활동",
+          "fm.li7": "24시간 긴급 대응 계획 수립",
+          "fm.li8": "자산 수명 주기 계획",
+          "fm.desc":
+            "저희의 시설 관리 서비스는 귀사의 건물이 효율적이고 안전하며 지속 가능하게 운영되도록 설계되었습니다. 자산의 성능, 수명, 가치를 유지할 수 있도록 전력적이고 실무적인 지원을 제공하여, 귀사가 핵심 업무에 집중할 수 있도록 돕습니다.",
+        },
+      };
+
+      const LS_KEY = "siteLang";
+      const btnKO = document.getElementById("btnKO");
+      const btnEN = document.getElementById("btnEN");
+      const TRANSLATE_BODY = true;
+
+      function detectInitialLang() {
+        const saved = localStorage.getItem(LS_KEY);
+        if (saved === "ko" || saved === "en") return saved;
+        const nav = (navigator.language || "en").toLowerCase();
+        return nav.startsWith("ko") ? "ko" : "en";
+      }
+
+      function setLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        if (TRANSLATE_BODY) {
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const val = dict[key];
+            if (!val) return;
+            el.innerHTML = val.replace(/\n/g, "<br>");
+          });
+          if (dict["page.title"]) document.title = dict["page.title"];
+          document.documentElement.setAttribute("lang", lang);
+        }
+
+        const isKO = lang === "ko";
+        btnKO?.setAttribute("aria-pressed", String(isKO));
+        btnEN?.setAttribute("aria-pressed", String(!isKO));
+        localStorage.setItem(LS_KEY, lang);
+      }
+
+      btnKO?.addEventListener("click", () => setLang("ko"));
+      btnEN?.addEventListener("click", () => setLang("en"));
+
+      setLang(detectInitialLang());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

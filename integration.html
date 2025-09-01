@@ -1,263 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Consulting - NFD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root {
-      --highlight-color: #50C7D2;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-
-    .navbar {
-      background-color: #000;
-      padding: 1rem 2rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #fff !important;
-    }
-
-    .navbar-nav {
-      gap: 2.5rem;
-    }
-
-    .navbar-nav .nav-link {
-      color: white !important;
-      font-size: 1.4rem;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-
-    .navbar-nav .nav-link.active::after {
-      content: "";
-      display: block;
-      height: 4px;
-      background-color: var(--highlight-color);
-      width: 100%;
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      border-radius: 2px;
-    }
-
-    .header-section {
-      background-color: #000;
-      color: #fff;
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .header-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid var(--highlight-color);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .header-section p {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .content-section {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-
-    .content-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .content-image {
-      flex: 1 1 40%;
-      min-width: 300px;
-      position: relative;
-      overflow: visible;
-    }
-    .overlay-bar {
-      position: absolute;
-      top: 0;
-      right: -30px;
-      width: 5px;
-      height: 120px;
-      background-color: var(--highlight-color);
-    }
-
-    .content-image img {
-      width: 110%;
-      max-width: none;
-      height: auto;
-      display: block;
-      margin-top: 40px;
-    }
-
-    .content-text {
-      flex: 1 1 55%;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .core-services {
-      /* border-left: 4px solid var(--highlight-color); */
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-      position: absolute;
-      top: 0;
-    }
-
-    .core-services h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--highlight-color);
-      margin-left: -0.8rem;
-    }
-
-    .core-services ul {
-      list-style: none;
-      padding-left: 2rem;
-      margin: 0;
-      margin-top: 1rem;
-    }
-
-    .core-services ul li {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .core-services ul li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.3rem;
-      width: 3px;
-      height: 1.2rem;
-      background-color: var(--highlight-color);
-      border-radius: 1px;
-    }
-
-    .description {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      margin-top: 18rem;
-      margin-left: 3.5rem;
-    }
-
-    @media (max-width: 768px) {
-      html {
-        font-size: 78%;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering Consulting - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
       }
-      
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #000;
+      }
+
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff !important;
+      }
+
+      .navbar-nav {
+        gap: 2.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .header-section {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+
       .header-section h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        border-bottom: 3px solid var(--highlight-color);
+        display: inline-block;
+        padding-bottom: 0.5rem;
       }
 
-      .core-services {
-        position: static;
-        margin-bottom: 2rem;
+      .header-section p {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
       }
 
-      .description {
-        margin-top: 2rem;
+      .content-section {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
       }
 
-      .core-services h3 {
-        font-size: 1.3rem;
-      }
-
-      .core-services ul li {
-        font-size: 1rem;
-      }
-
-      .description {
-        font-size: 1.05rem;
-      }
-
-      .overlay-bar {
-        display: none;
+      .content-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
       }
 
       .content-image {
-        display: flex;
-        justify-content: center;
+        flex: 1 1 40%;
+        min-width: 300px;
+        position: relative;
+        overflow: visible;
+      }
+      .overlay-bar {
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 5px;
+        height: 120px;
+        background-color: var(--highlight-color);
       }
 
       .content-image img {
-        margin: 0 auto;
+        width: 110%;
+        max-width: none;
+        height: auto;
+        display: block;
+        margin-top: 40px;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="index.html""> NFD </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      .content-text {
+        flex: 1 1 55%;
+        min-width: 300px;
+        position: relative;
+      }
 
-  <!-- Header -->
-  <div class="header-section">
-    <h1>BMS/EPMS Integration</h1>
-    <p>Service Details</p>
-  </div>
+      .core-services {
+        /* border-left: 4px solid var(--highlight-color); */
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        top: 0;
+      }
 
-  <!-- Content -->
-  <div class="content-section">
-    <div class="content-row">
-      <div class="content-image">
-        <img src="images/06-1 BMS_EPMS Integration.png" alt="BMS/EPMS Integration">
-        <div class="overlay-bar"></div>
-      </div>
-      <div class="content-text">
-        <div class="core-services">
-          <h3>Core Services</h3>
-          <ul>
-            <li>Comprehensive BMS/EPMS System Design & Integration</li>
-            <li>Data Center Monitoring & Control Expertise</li>
-            <li>Real-Time Monitoring & Fault Detection</li>
-            <li>Customized Solutions for Mission-Critical Environments</li>
+      .core-services h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--highlight-color);
+        margin-left: -0.8rem;
+      }
+
+      .core-services ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      .core-services ul li {
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .core-services ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        width: 3px;
+        height: 1.2rem;
+        background-color: var(--highlight-color);
+        border-radius: 1px;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-top: 18rem;
+        margin-left: 3.5rem;
+      }
+
+      /* Language Toggle (unified) */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 78%;
+        }
+
+        .header-section h1 {
+          font-size: 2rem;
+        }
+
+        .core-services {
+          position: static;
+          margin-bottom: 2rem;
+        }
+
+        .description {
+          margin-top: 2rem;
+        }
+
+        .core-services h3 {
+          font-size: 1.3rem;
+        }
+
+        .core-services ul li {
+          font-size: 1rem;
+        }
+
+        .description {
+          font-size: 1.05rem;
+        }
+
+        .overlay-bar {
+          display: none;
+        }
+
+        .content-image {
+          display: flex;
+          justify-content: center;
+        }
+
+        .content-image img {
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="services.html"
+                data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
+                >Our Work</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
           </ul>
+          <div
+            class="lang-toggle ms-lg-3"
+            role="group"
+            aria-label="Language selector"
+          >
+            <button
+              id="btnKO"
+              type="button"
+              class="lang-btn"
+              data-lang="ko"
+              aria-pressed="false"
+            >
+              KO
+            </button>
+            <button
+              id="btnEN"
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+          </div>
         </div>
-        <div class="description">
-          We provide advanced consulting and implementation services for Building Management Systems (BMS) and Electrical Power Monitoring Systems (EPMS) in mission-critical facilities.
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header-section">
+      <h1 data-i18n="int.heading">BMS/EPMS Integration</h1>
+      <p data-i18n="int.subtitle">Service Details</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section">
+      <div class="content-row">
+        <div class="content-image">
+          <img
+            src="images/06-1 BMS_EPMS Integration.png"
+            alt="BMS/EPMS Integration"
+          />
+          <div class="overlay-bar"></div>
+        </div>
+        <div class="content-text">
+          <div class="core-services">
+            <h3 data-i18n="int.core">Core Services</h3>
+            <ul>
+              <li data-i18n="int.li1">
+                Comprehensive BMS/EPMS System Design & Integration
+              </li>
+              <li data-i18n="int.li2">
+                Data Center Monitoring & Control Expertise
+              </li>
+              <li data-i18n="int.li3">
+                Real-Time Monitoring & Fault Detection
+              </li>
+              <li data-i18n="int.li4">
+                Customized Solutions for Mission-Critical Environments
+              </li>
+            </ul>
+          </div>
+          <div class="description" data-i18n="int.desc">
+            We provide advanced consulting and implementation services for
+            Building Management Systems (BMS) and Electrical Power Monitoring
+            Systems (EPMS) in mission-critical facilities.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script>
+      const I18N = {
+        en: {
+          "page.title": "BMS/EPMS Integration - NFD",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.contact": "Contact",
+          "int.heading": "BMS/EPMS Integration",
+          "int.subtitle": "Service Details",
+          "int.core": "Core Services",
+          "int.li1": "Comprehensive BMS/EPMS System Design & Integration",
+          "int.li2": "Data Center Monitoring & Control Expertise",
+          "int.li3": "Real-Time Monitoring & Fault Detection",
+          "int.li4": "Customized Solutions for Mission-Critical Environments",
+          "int.desc":
+            "We provide advanced consulting and implementation services for Building Management Systems (BMS) and Electrical Power Monitoring Systems (EPMS) in mission-critical facilities.",
+        },
+        ko: {
+          "page.title": "BMS/EPMS 통합 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.contact": "문의하기",
+          "int.heading": "BMS/EPMS 통합",
+          "int.subtitle": "서비스 상세 내용",
+          "int.core": "주요 서비스",
+          "int.li1": "BMS/EPMS 시스템 설계 및 통합",
+          "int.li2": "데이터 센터 모니터링 및 제어 전문성",
+          "int.li3": "실시간 모니터링 및 고장 감지",
+          "int.li4": "미션 크리티컬 환경 맞춤형 솔루션",
+          "int.desc":
+            "저희의 BMS/EPMS 통합 서비스는 미션 크리티컬 시설을 대상으로 빌딩 관리 시스템(BMS)와 전력 모니터링 시스템(EPMS)에 대한 고급 컨설팅 및 구축 서비스를 제공합니다",
+        },
+      };
+
+      const LS_KEY = "siteLang";
+      const btnKO = document.getElementById("btnKO");
+      const btnEN = document.getElementById("btnEN");
+      const TRANSLATE_BODY = true;
+
+      function detectInitialLang() {
+        const saved = localStorage.getItem(LS_KEY);
+        if (saved === "ko" || saved === "en") return saved;
+        const nav = (navigator.language || "en").toLowerCase();
+        return nav.startsWith("ko") ? "ko" : "en";
+      }
+
+      function setLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        if (TRANSLATE_BODY) {
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const val = dict[key];
+            if (!val) return;
+            el.innerHTML = val.replace(/\n/g, "<br>");
+          });
+          if (dict["page.title"]) document.title = dict["page.title"];
+          document.documentElement.setAttribute("lang", lang);
+        }
+
+        const isKO = lang === "ko";
+        btnKO?.setAttribute("aria-pressed", String(isKO));
+        btnEN?.setAttribute("aria-pressed", String(!isKO));
+        localStorage.setItem(LS_KEY, lang);
+      }
+
+      btnKO?.addEventListener("click", () => setLang("ko"));
+      btnEN?.addEventListener("click", () => setLang("en"));
+
+      setLang(detectInitialLang());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

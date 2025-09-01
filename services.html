@@ -1,305 +1,516 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - NFD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root {
-      --highlight-color: #50C7D2;
-    }
-
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1 0 auto;
-    }
-
-    footer {
-      flex-shrink: 0;
-    }
-
-    .navbar {
-      background-color: #000;
-      padding: 1rem 2rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .navbar-nav {
-      gap: 2.5rem;
-    }
-
-    .navbar-nav .nav-link {
-      color: white !important;
-      font-size: 1.4rem;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-
-    .navbar-nav .nav-link.active::after {
-      content: "";
-      display: block;
-      height: 4px;
-      background-color: var(--highlight-color);
-      width: 100%;
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      border-radius: 2px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      font-size: 2.2rem;
-      font-weight: 600;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      margin-bottom: 4rem;
-      font-size: 1.5rem;
-      color: #555;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5rem 3rem;
-      padding: 3rem 1rem 4rem;
-      justify-items: center;
-      justify-content: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media (max-width: 768px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
       }
-    }
-
-    @media (max-width: 768px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-        justify-items: start;
-        text-align: left;
+      /* Language Toggle */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
       }
-    }
-
-    .service-box {
-      max-width: 100%;
-      text-align: left;
-      transition: transform 0.3s ease;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .service-content {
-      flex: 1;
-      max-width: 380px;
-    }
-
-    .service-box img {
-      flex-shrink: 0;
-      width: 80px;
-      height: 80px;
-      margin-bottom: 0;
-      transition: all 0.3s ease;
-    }
-    /* Restrict hover effects to desktop only */
-    @media (hover: hover) and (pointer: fine) {
-      .service-box:hover {
-        transform: translateY(-4px);
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
       }
 
-      .service-box:hover img[data-hover] {
-        content: attr(data-hover);
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
       }
-    }
 
-    .service-title {
-      text-align: left;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 1rem;
-    }
+      main {
+        flex: 1 0 auto;
+      }
 
-    .service-text { 
-      font-size: 1.25rem;
-      color: #555;
-      line-height: 1.5;
-      text-align: left;
-    }
+      footer {
+        flex-shrink: 0;
+      }
 
-    @media (max-width: 768px) {
-      html {
-        font-size: 78%;
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
       }
 
       .navbar-nav {
-        gap: 1rem;
+        gap: 2.5rem;
       }
 
       .navbar-nav .nav-link {
-        font-size: 1rem;
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+        font-weight: 600;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 4rem;
+        font-size: 1.5rem;
+        color: #555;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: pre-line;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5rem 3rem;
+        padding: 3rem 1rem 4rem;
+        justify-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+          justify-items: start;
+          text-align: left;
+        }
       }
 
       .service-box {
-        width: 100%;
-        max-width: 320px;
+        max-width: 100%;
         text-align: left;
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
       }
 
-      footer.logo-strip img {
-        margin: 1rem;
-        max-height: 36px;
+      .service-content {
+        flex: 1;
+        max-width: 380px;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="index.html""> NFD </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      .service-box img {
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+        transition: all 0.3s ease;
+      }
+      /* Restrict hover effects to desktop only */
+      @media (hover: hover) and (pointer: fine) {
+        .service-box:hover {
+          transform: translateY(-4px);
+        }
 
-  <!-- Page Content -->
-  <main class="container d-flex flex-column justify-content-center flex-grow-1" style="margin-top: auto; margin-bottom: auto;">
-    <h2 class="section-title">Services</h2>
-    <p class="section-subtitle">Driven by necessity, we provide solutions that help clients navigate challenges with integrity and foresight.</p>
-
-    <div class="services-grid">
-
-      <div class="service-box">
-        <a href="engineeringConsulting.html">
-        <img src="images/icon 02-1.png" data-hover="images/icon 02-2.png" alt="Engineering Consulting"
-             onmouseover="this.src='images/icon 02-2.png'" onmouseout="this.src='images/icon 02-1.png'"></a>
-        <div class="service-content">
-          <div class="service-title">Engineering Consulting</div>
-          <div class="service-text">
-            We deliver expert engineering consulting solutions, from design and analysis to implementation and optimization.
-          </div>
-        </div>
-      </div>
-
-      <div class="service-box">
-        <a href="projectManager.html">
-        <img src="images/icon 03-1.png" data-hover="images/icon 03-2.png" alt="Project Management"
-             onmouseover="this.src='images/icon 03-2.png'" onmouseout="this.src='images/icon 03-1.png'"></a>
-        <div class="service-content">
-          <div class="service-title">Project Management</div>
-          <div class="service-text">
-            We provide end-to-end project management services, ensuring every project is delivered on time, within budget, and to the highest standards.
-          </div>
-        </div>
-      </div>
-
-      <div class="service-box">
-        <a href="lease-management.html">
-        <img src="images/icon 04-1.png" data-hover="images/icon 04-2.png" alt="Lease Management"
-             onmouseover="this.src='images/icon 04-2.png'" onmouseout="this.src='images/icon 04-1.png'"></a>
-        <div class="service-content">
-          <div class="service-title">Lease Management</div>
-          <div class="service-text">
-            End-to-end lease management that ensures compliance, clarity, and control across your property portfolio.
-          </div>
-        </div>
-      </div>
-
-      <div class="service-box">
-        <a href="commissioning-agent.html">
-        <img src="images/icon 01-1.png" data-hover="images/icon 01-2.png" alt="Commissioning Agent"
-             onmouseover="this.src='images/icon 01-2.png'" onmouseout="this.src='images/icon 01-1.png'"></a>
-        <div class="service-content">
-          <div class="service-title">Commissioning Agent</div>
-          <div class="service-text">
-            As your commissioning agent, we validate every system for functionality, efficiency, and long-term reliability.
-          </div>
-        </div>
-      </div>
-
-      <div class="service-box">
-        <a href="facility-management.html">
-        <img src="images/icon 05-1.png" data-hover="images/icon 05-2.png" alt="Facility Management"
-             onmouseover="this.src='images/icon 05-2.png'" onmouseout="this.src='images/icon 05-1.png'"></a>
-        <div class="service-content">
-          <div class="service-title">Facility Management</div>
-          <div class="service-text">
-            Ensuring your facilities run smoothly — with proactive maintenance, compliance, and operational support.
-          </div>
-        </div>
-      </div>
-
-      <div class="service-box">
-        <a href="integration.html">
-        <img src="images/icon 06-1.png" data-hover="images/icon 06-2.png" alt="BMS/EPMS Integration"
-             onmouseover="this.src='images/icon 06-2.png'" onmouseout="this.src='images/icon 06-1.png'"></a>
-        <div class="service-content">
-          <div class="service-title">BMS/EPMS Integration</div>
-          <div class="service-text">
-            We integrate diverse systems to enable real-time monitoring, fault detection, and energy optimization.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.querySelectorAll('.service-box img').forEach(img => {
-    // Save original image source if not already set
-    if (!img.hasAttribute('data-original')) {
-      img.setAttribute('data-original', img.src);
-    }
-
-    img.addEventListener('click', function () {
-      if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
-        const original = this.getAttribute('data-original');
-        const hover = this.getAttribute('data-hover');
-
-        if (this.src === original || this.src.endsWith(original)) {
-          this.src = hover;
-        } else {
-          this.src = original;
+        .service-box:hover img[data-hover] {
+          content: attr(data-hover);
         }
       }
-    });
-  });
-</script>
-</body>
+
+      .service-title {
+        text-align: left;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .service-text {
+        font-size: 1.25rem;
+        color: #555;
+        line-height: 1.5;
+        text-align: left;
+        white-space: pre-line;
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 78%;
+        }
+
+        .navbar-nav {
+          gap: 1rem;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 1rem;
+        }
+
+        .service-box {
+          width: 100%;
+          max-width: 320px;
+          text-align: left;
+        }
+
+        footer.logo-strip img {
+          margin: 1rem;
+          max-height: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="services.html"
+                data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
+                >Our Work</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <div
+            class="lang-toggle ms-lg-3"
+            role="group"
+            aria-label="Language selector"
+          >
+            <button
+              id="btnKO"
+              type="button"
+              class="lang-btn"
+              data-lang="ko"
+              aria-pressed="false"
+            >
+              KO
+            </button>
+            <button
+              id="btnEN"
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main
+      class="container d-flex flex-column justify-content-center flex-grow-1"
+      style="margin-top: auto; margin-bottom: auto"
+    >
+      <h2 class="section-title" data-i18n="services.heading">Services</h2>
+      <p class="section-subtitle" data-i18n="services.subtitle">
+        Driven by necessity, we provide solutions that help clients navigate
+        challenges with integrity and foresight.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-box">
+          <a href="engineeringConsulting.html">
+            <img
+              src="images/icon 02-1.png"
+              data-hover="images/icon 02-2.png"
+              alt="Engineering Consulting"
+              onmouseover="this.src='images/icon 02-2.png'"
+              onmouseout="this.src='images/icon 02-1.png'"
+          /></a>
+          <div class="service-content">
+            <div class="service-title" data-i18n="svc.eng.title">
+              Engineering Consulting
+            </div>
+            <div class="service-text" data-i18n="svc.eng.text">
+              We deliver expert engineering consulting solutions, from design
+              and analysis to implementation and optimization.
+            </div>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <a href="projectManager.html">
+            <img
+              src="images/icon 03-1.png"
+              data-hover="images/icon 03-2.png"
+              alt="Project Management"
+              onmouseover="this.src='images/icon 03-2.png'"
+              onmouseout="this.src='images/icon 03-1.png'"
+          /></a>
+          <div class="service-content">
+            <div class="service-title" data-i18n="svc.pm.title">
+              Project Management
+            </div>
+            <div class="service-text" data-i18n="svc.pm.text">
+              We provide end-to-end project management services, ensuring every
+              project is delivered on time, within budget, and to the highest
+              standards.
+            </div>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <a href="lease-management.html">
+            <img
+              src="images/icon 04-1.png"
+              data-hover="images/icon 04-2.png"
+              alt="Lease Management"
+              onmouseover="this.src='images/icon 04-2.png'"
+              onmouseout="this.src='images/icon 04-1.png'"
+          /></a>
+          <div class="service-content">
+            <div class="service-title" data-i18n="svc.lease.title">
+              Lease Management
+            </div>
+            <div class="service-text" data-i18n="svc.lease.text">
+              End-to-end lease management that ensures compliance, clarity, and
+              control across your property portfolio.
+            </div>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <a href="commissioning-agent.html">
+            <img
+              src="images/icon 01-1.png"
+              data-hover="images/icon 01-2.png"
+              alt="Commissioning Agent"
+              onmouseover="this.src='images/icon 01-2.png'"
+              onmouseout="this.src='images/icon 01-1.png'"
+          /></a>
+          <div class="service-content">
+            <div class="service-title" data-i18n="svc.cx.title">
+              Commissioning Agent
+            </div>
+            <div class="service-text" data-i18n="svc.cx.text">
+              As your commissioning agent, we validate every system for
+              functionality, efficiency, and long-term reliability.
+            </div>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <a href="facility-management.html">
+            <img
+              src="images/icon 05-1.png"
+              data-hover="images/icon 05-2.png"
+              alt="Facility Management"
+              onmouseover="this.src='images/icon 05-2.png'"
+              onmouseout="this.src='images/icon 05-1.png'"
+          /></a>
+          <div class="service-content">
+            <div class="service-title" data-i18n="svc.fm.title">
+              Facility Management
+            </div>
+            <div class="service-text" data-i18n="svc.fm.text">
+              Ensuring your facilities run smoothly — with proactive
+              maintenance, compliance, and operational support.
+            </div>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <a href="integration.html">
+            <img
+              src="images/icon 06-1.png"
+              data-hover="images/icon 06-2.png"
+              alt="BMS/EPMS Integration"
+              onmouseover="this.src='images/icon 06-2.png'"
+              onmouseout="this.src='images/icon 06-1.png'"
+          /></a>
+          <div class="service-content">
+            <div class="service-title" data-i18n="svc.integration.title">
+              BMS/EPMS Integration
+            </div>
+            <div class="service-text" data-i18n="svc.integration.text">
+              We integrate diverse systems to enable real-time monitoring, fault
+              detection, and energy optimization.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const I18N = {
+        en: {
+          "page.title": "Services - NFD",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.contact": "Contact",
+          "services.heading": "Services",
+          "services.subtitle":
+            "Driven by necessity, we provide solutions that help clients navigate challenges with integrity and foresight.",
+          "svc.eng.title": "Engineering Consulting",
+          "svc.eng.text":
+            "We deliver expert engineering consulting solutions, from design and analysis to implementation and optimization.",
+          "svc.pm.title": "Project Management",
+          "svc.pm.text":
+            "We provide end-to-end project management services, ensuring every project is delivered on time, within budget, and to the highest standards.",
+          "svc.lease.title": "Lease Management",
+          "svc.lease.text":
+            "End-to-end lease management that ensures compliance, clarity, and control across your property portfolio.",
+          "svc.cx.title": "Commissioning Agent",
+          "svc.cx.text":
+            "As your commissioning agent, we validate every system for functionality, efficiency, and long-term reliability.",
+          "svc.fm.title": "Facility Management",
+          "svc.fm.text":
+            "Ensuring your facilities run smoothly — with proactive maintenance, compliance, and operational support.",
+          "svc.integration.title": "BMS/EPMS Integration",
+          "svc.integration.text":
+            "We integrate diverse systems to enable real-time monitoring, fault detection, and energy optimization.",
+        },
+        ko: {
+          "page.title": "서비스 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.contact": "문의하기",
+          "services.heading": "사업영역",
+          "services.subtitle":
+            "필요에 따라 움직이며, 고객이 도전 과제를 정직하고 선견지명 있게 \n해결할 수 있도록 최적의 솔루션을 제공합니다.",
+          "svc.eng.title": "엔지니어링 컨설팅",
+          "svc.eng.text":
+            "설계와 분석부터 실행 및 최적화에 이르기까지 전문적인 엔지니어링 컨설팅 솔루션을 제공합니다.",
+          "svc.pm.title": "프로젝트 관리",
+          "svc.pm.text":
+            "기획부터 완료까지 전 단계를 책임지는 프로젝트 관리로, 일정과 예산을 준수하며 최상의 품질을 보장합니다.",
+          "svc.lease.title": "임대 관리",
+          "svc.lease.text":
+            "임대차 전 과정을 아우르며, 부동산 포트폴리오 전반에 걸쳐 규정 준수와 투명한 관리, 체계적인 통제를 제공합니다.",
+          "svc.cx.title": "커미셔닝 에이전트",
+          "svc.cx.text":
+            "커미셔닝 에이전트로서, 각 시스템이 정상 작동하고 효율적이며 장기적, 안정적으로 운영될 수 있도록 철저히 검증합니다.",
+          "svc.fm.title": "시설 관리",
+          "svc.fm.text":
+            "예방적 유지보수와 규정 준수, 체계적인 운영 지원을 통해 시설이 안정적으로 운영되도록 보장합니다.",
+          "svc.integration.title": "BMS/EPMS 통합",
+          "svc.integration.text":
+            "다양한 시스템을 연동하여 실시간 상태 감시, 이상 징후 탐지, 에너지효율 향상을 지원합니다.",
+        },
+      };
+
+      const LS_KEY = "siteLang";
+      const btnKO = document.getElementById("btnKO");
+      const btnEN = document.getElementById("btnEN");
+      const TRANSLATE_BODY = true;
+
+      function detectInitialLang() {
+        const saved = localStorage.getItem(LS_KEY);
+        if (saved === "ko" || saved === "en") return saved;
+        const nav = (navigator.language || "en").toLowerCase();
+        return nav.startsWith("ko") ? "ko" : "en";
+      }
+
+      function setLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        if (TRANSLATE_BODY) {
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (!dict[key]) return;
+            el.textContent = dict[key];
+          });
+          if (dict["page.title"]) document.title = dict["page.title"];
+          document.documentElement.setAttribute("lang", lang);
+        }
+
+        const isKO = lang === "ko";
+        btnKO?.setAttribute("aria-pressed", String(isKO));
+        btnEN?.setAttribute("aria-pressed", String(!isKO));
+        localStorage.setItem(LS_KEY, lang);
+      }
+
+      btnKO?.addEventListener("click", () => setLang("ko"));
+      btnEN?.addEventListener("click", () => setLang("en"));
+
+      setLang(detectInitialLang());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

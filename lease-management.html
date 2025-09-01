@@ -1,268 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lease Management - NFD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root {
-      --highlight-color: #50C7D2;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-
-    .navbar {
-      background-color: #000;
-      padding: 1rem 2rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #fff !important;
-    }
-
-    .navbar-nav {
-      gap: 2.5rem;
-    }
-
-    .navbar-nav .nav-link {
-      color: white !important;
-      font-size: 1.4rem;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-
-    .navbar-nav .nav-link.active::after {
-      content: "";
-      display: block;
-      height: 4px;
-      background-color: var(--highlight-color);
-      width: 100%;
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      border-radius: 2px;
-    }
-
-    .header-section {
-      background-color: #000;
-      color: #fff;
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .header-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid var(--highlight-color);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .header-section p {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .content-section {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-
-    .content-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .content-image {
-      flex: 1 1 40%;
-      min-width: 300px;
-      position: relative;
-      overflow: visible;
-    }
-    .overlay-bar {
-      position: absolute;
-      top: 0;
-      right: -30px;
-      width: 5px;
-      height: 120px;
-      background-color: var(--highlight-color);
-    }
-
-    .content-image img {
-      width: 110%;
-      max-width: none;
-      height: auto;
-      display: block;
-      margin-top: 40px;
-    }
-
-    .content-text {
-      flex: 1 1 55%;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .core-services {
-      /* border-left: 4px solid var(--highlight-color); */
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-      position: absolute;
-      top: 0;
-    }
-
-    .core-services h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--highlight-color);
-      margin-left: -0.8rem;
-    }
-
-    .core-services ul {
-      list-style: none;
-      padding-left: 2rem;
-      margin: 0;
-      margin-top: 1rem;
-    }
-
-    .core-services ul li {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .core-services ul li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.3rem;
-      width: 3px;
-      height: 1.2rem;
-      background-color: var(--highlight-color);
-      border-radius: 1px;
-    }
-
-    .description {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      margin-top: 25rem;
-      margin-left: 3.5rem;
-    }
-
-    @media (max-width: 768px) {
-      html {
-        font-size: 78%;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lease Management - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
       }
-      
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #000;
+      }
+
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff !important;
+      }
+
+      .navbar-nav {
+        gap: 2.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .header-section {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+
       .header-section h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        border-bottom: 3px solid var(--highlight-color);
+        display: inline-block;
+        padding-bottom: 0.5rem;
       }
 
-      .core-services {
-        position: static;
-        margin-bottom: 2rem;
+      .header-section p {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
       }
 
-      .description {
-        margin-top: 2rem;
+      .content-section {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
       }
 
-      .core-services h3 {
-        font-size: 1.3rem;
-      }
-
-      .core-services ul li {
-        font-size: 1rem;
-      }
-
-      .description {
-        font-size: 1.05rem;
-      }
-
-      .overlay-bar {
-        display: none;
+      .content-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
       }
 
       .content-image {
-        display: flex;
-        justify-content: center;
+        flex: 1 1 40%;
+        min-width: 300px;
+        position: relative;
+        overflow: visible;
+      }
+      .overlay-bar {
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 5px;
+        height: 120px;
+        background-color: var(--highlight-color);
       }
 
       .content-image img {
-        margin: 0 auto;
+        width: 110%;
+        max-width: none;
+        height: auto;
+        display: block;
+        margin-top: 40px;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="index.html""> NFD </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      .content-text {
+        flex: 1 1 55%;
+        min-width: 300px;
+        position: relative;
+      }
 
-  <!-- Header -->
-  <div class="header-section">
-    <h1>Lease Management</h1>
-    <p>Service Details</p>
-  </div>
+      .core-services {
+        /* border-left: 4px solid var(--highlight-color); */
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        top: 0;
+      }
 
-  <!-- Content -->
-  <div class="content-section">
-    <div class="content-row">
-      <div class="content-image">
-        <img src="images/04 Lease Management.webp" alt="Lease Management">
-        <div class="overlay-bar"></div>
-      </div>
-      <div class="content-text">
-        <div class="core-services">
-          <h3>Core Services</h3>
-          <ul>
-            <li>Lease Review & Abstracting</li>
-            <li>Lease Administration & Tracking</li>
-            <li>Rent & Expense Reconciliation</li>
-            <li>Critical Date Management</li>
-            <li>Occupancy Cost Analysis</li>
-            <li>Lease Compliance Monitoring</li>
-            <li>Renewal & Termination Strategy</li>
-            <li>Landlord/Tenant Coordination</li>
-            <li>Document Management & Reporting</li>
+      .core-services h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--highlight-color);
+        margin-left: -0.8rem;
+      }
+
+      .core-services ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      .core-services ul li {
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .core-services ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        width: 3px;
+        height: 1.2rem;
+        background-color: var(--highlight-color);
+        border-radius: 1px;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-top: 25rem;
+        margin-left: 3.5rem;
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 78%;
+        }
+
+        .header-section h1 {
+          font-size: 2rem;
+        }
+
+        .core-services {
+          position: static;
+          margin-bottom: 2rem;
+        }
+
+        .description {
+          margin-top: 2rem;
+        }
+
+        .core-services h3 {
+          font-size: 1.3rem;
+        }
+
+        .core-services ul li {
+          font-size: 1rem;
+        }
+
+        .description {
+          font-size: 1.05rem;
+        }
+
+        .overlay-bar {
+          display: none;
+        }
+
+        .content-image {
+          display: flex;
+          justify-content: center;
+        }
+
+        .content-image img {
+          margin: 0 auto;
+        }
+      }
+
+      /* Language Toggle (unified) */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="services.html"
+                data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
+                >Our Work</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
           </ul>
+          <div
+            class="lang-toggle ms-lg-3"
+            role="group"
+            aria-label="Language selector"
+          >
+            <button
+              id="btnKO"
+              type="button"
+              class="lang-btn"
+              data-lang="ko"
+              aria-pressed="false"
+            >
+              KO
+            </button>
+            <button
+              id="btnEN"
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+          </div>
         </div>
-        <div class="description">
-          Our Lease Management services are designed to help property owners, tenants, and facility managers navigate the complexities of lease agreements with confidence and clarity. We provide comprehensive support across the lease lifecycle—ensuring compliance, optimizing value, and minimizing risk.
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header-section">
+      <h1 data-i18n="lm.heading">Lease Management</h1>
+      <p data-i18n="lm.subtitle">Service Details</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section">
+      <div class="content-row">
+        <div class="content-image">
+          <img src="images/04 Lease Management.webp" alt="Lease Management" />
+          <div class="overlay-bar"></div>
+        </div>
+        <div class="content-text">
+          <div class="core-services">
+            <h3 data-i18n="lm.core">Core Services</h3>
+            <ul>
+              <li data-i18n="lm.li1">Lease Review & Abstracting</li>
+              <li data-i18n="lm.li2">Lease Administration & Tracking</li>
+              <li data-i18n="lm.li3">Rent & Expense Reconciliation</li>
+              <li data-i18n="lm.li4">Critical Date Management</li>
+              <li data-i18n="lm.li5">Occupancy Cost Analysis</li>
+              <li data-i18n="lm.li6">Lease Compliance Monitoring</li>
+              <li data-i18n="lm.li7">Renewal & Termination Strategy</li>
+              <li data-i18n="lm.li8">Landlord/Tenant Coordination</li>
+              <li data-i18n="lm.li9">Document Management & Reporting</li>
+            </ul>
+          </div>
+          <div class="description" data-i18n="lm.desc">
+            Our Lease Management services are designed to help property owners,
+            tenants, and facility managers navigate the complexities of lease
+            agreements with confidence and clarity. We provide comprehensive
+            support across the lease lifecycle—ensuring compliance, optimizing
+            value, and minimizing risk.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script>
+      const I18N = {
+        en: {
+          "page.title": "Lease Management - NFD",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.contact": "Contact",
+          "lm.heading": "Lease Management",
+          "lm.subtitle": "Service Details",
+          "lm.core": "Core Services",
+          "lm.li1": "Lease Review & Abstracting",
+          "lm.li2": "Lease Administration & Tracking",
+          "lm.li3": "Rent & Expense Reconciliation",
+          "lm.li4": "Critical Date Management",
+          "lm.li5": "Occupancy Cost Analysis",
+          "lm.li6": "Lease Compliance Monitoring",
+          "lm.li7": "Renewal & Termination Strategy",
+          "lm.li8": "Landlord/Tenant Coordination",
+          "lm.li9": "Document Management & Reporting",
+          "lm.desc":
+            "Our Lease Management services are designed to help property owners, tenants, and facility managers navigate the complexities of lease agreements with confidence and clarity. We provide comprehensive support across the lease lifecycle—ensuring compliance, optimizing value, and minimizing risk.",
+        },
+        ko: {
+          "page.title": "리스 매니지먼트 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.contact": "문의하기",
+          "lm.heading": "임대 관리",
+          "lm.subtitle": "서비스 상세 내용",
+          "lm.core": "주요 서비스",
+          "lm.li1": "임대차 계약 검토 및 요약",
+          "lm.li2": "임대차 계약 관리 및 추적",
+          "lm.li3": "임대료 및 비용 정산",
+          "lm.li4": "중요 일정 관리",
+          "lm.li5": "시설 운영 비용 분석",
+          "lm.li6": "임대차 계약 준수 모니터링",
+          "lm.li7": "갱신 및 종료 전략",
+          "lm.li8": "임대인/임차인 조율",
+          "lm.li9": "문서 관리 및 보고",
+          "lm.desc":
+            "저희의 임대 관리 서비스는 부동산 소유주, 임차인, 시설 관리자가 복잡한 임대 계약을 명확하고 신뢰성 있게 관리할 수 있도록 설계되었습니다. 임대 계약 전 과정을 포괄적으로 지원하며, 계약 준수를 보장하고 가치를 최적화하며 리스크를 최소화합니다.",
+        },
+      };
+
+      const LS_KEY = "siteLang";
+      const btnKO = document.getElementById("btnKO");
+      const btnEN = document.getElementById("btnEN");
+      const TRANSLATE_BODY = true;
+
+      function detectInitialLang() {
+        const saved = localStorage.getItem(LS_KEY);
+        if (saved === "ko" || saved === "en") return saved;
+        const nav = (navigator.language || "en").toLowerCase();
+        return nav.startsWith("ko") ? "ko" : "en";
+      }
+
+      function setLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        if (TRANSLATE_BODY) {
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const val = dict[key];
+            if (!val) return;
+            el.innerHTML = val.replace(/\n/g, "<br>");
+          });
+          if (dict["page.title"]) document.title = dict["page.title"];
+          document.documentElement.setAttribute("lang", lang);
+        }
+
+        const isKO = lang === "ko";
+        btnKO?.setAttribute("aria-pressed", String(isKO));
+        btnEN?.setAttribute("aria-pressed", String(!isKO));
+        localStorage.setItem(LS_KEY, lang);
+      }
+
+      btnKO?.addEventListener("click", () => setLang("ko"));
+      btnEN?.addEventListener("click", () => setLang("en"));
+
+      setLang(detectInitialLang());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
