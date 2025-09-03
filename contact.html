@@ -74,6 +74,39 @@
         height: 100%;
         border: none;
       }
+      /* Lightweight map placeholder */
+      .map-placeholder {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: #e9eef3;
+        background-image: linear-gradient(135deg, #edf2f7 25%, transparent 25%),
+          linear-gradient(225deg, #edf2f7 25%, transparent 25%),
+          linear-gradient(45deg, #edf2f7 25%, transparent 25%),
+          linear-gradient(315deg, #edf2f7 25%, #e9eef3 25%);
+        background-position: 16px 0, 16px 0, 0 0, 0 0;
+        background-size: 32px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .map-placeholder .hint {
+        position: absolute;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        padding: 0.4rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        line-height: 1;
+      }
+      .map-placeholder .pin {
+        width: 64px;
+        height: 64px;
+        opacity: 0.25;
+      }
 
       .contact-section {
         text-align: center;
@@ -241,6 +274,10 @@
         border-color: transparent;
       }
     </style>
+    <link rel="preconnect" href="https://www.google.com" crossorigin />
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://maps.gstatic.com" />
   </head>
   <body>
     <!-- Navbar -->
@@ -321,17 +358,36 @@
     </nav>
 
     <!-- 지도 -->
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0979382507235!2d127.02179107651612!3d37.50560817205444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3797068b6ad%3A0x7331e860ec159340!2z7Yyo7Iqk7Yq47YyM7J2067iMIOyLoOuFvO2YhDLtmLjsoJA!5e0!3m2!1sko!2skr!4v1751885399326!5m2!1sko!2skr"
-        width="600"
-        height="450"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
+    <div
+      class="map-container"
+      id="mapContainer"
+      data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0979382507235!2d127.02179107651612!3d37.50560817205444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3797068b6ad%3A0x7331e860ec159340!2z7Yyo7Iqk7Yq47YyM7J2067iMIOyLoOuFvO2YhDLtmLjsoJA!5e0!3m2!1sko!2skr!4v1751885399326!5m2!1sko!2skr"
+    >
+      <div
+        class="map-placeholder"
+        id="mapPlaceholder"
+        role="button"
+        aria-label="Load map"
       >
-      </iframe>
+        <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+            fill="currentColor"
+          />
+        </svg>
+        <span class="hint" data-i18n="map.hint">Click to load map</span>
+      </div>
+      <noscript>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.0979382507235!2d127.02179107651612!3d37.50560817205444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3797068b6ad%3A0x7331e860ec159340!2z7Yyo7Iqk7Yq47YyM7J2067iMIOyLoOuFvO2YhDLtmLjsoJA!5e0!3m2!1sko!2skr!4v1751885399326!5m2!1sko!2skr"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </noscript>
     </div>
 
     <!-- 문의 섹션 -->
@@ -395,11 +451,14 @@
             </div>
             <div class="col-md-6">
               <input
+                id="emailInput"
                 type="email"
                 name="email"
                 class="form-control"
                 placeholder="Your Email"
                 required
+                autocomplete="email"
+                inputmode="email"
                 data-i18n-attr='{"placeholder":"form.email"}'
               />
             </div>
@@ -429,6 +488,43 @@
       </div>
     </section>
 
+    <script>
+      (function () {
+        const container = document.getElementById("mapContainer");
+        const placeholder = document.getElementById("mapPlaceholder");
+        if (!container || !placeholder) return;
+        const src = container.getAttribute("data-src");
+        let loaded = false;
+        function loadIframe() {
+          if (loaded) return;
+          loaded = true;
+          const ifr = document.createElement("iframe");
+          ifr.src = src;
+          ifr.width = "600";
+          ifr.height = "450";
+          ifr.style.border = "0";
+          ifr.allowFullscreen = true;
+          ifr.loading = "lazy";
+          ifr.referrerPolicy = "no-referrer-when-downgrade";
+          container.replaceChild(ifr, placeholder);
+        }
+        placeholder.addEventListener("click", loadIframe);
+        if ("IntersectionObserver" in window) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  loadIframe();
+                  io.disconnect();
+                }
+              });
+            },
+            { root: null, rootMargin: "200px", threshold: 0.01 }
+          );
+          io.observe(placeholder);
+        }
+      })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       const I18N = {
@@ -458,6 +554,9 @@
           "form.alert.error":
             "There was an issue sending your message. Please try again.",
           "form.alert.exception": "Error: ",
+          "map.hint": "Click to load map",
+          "form.email.invalid":
+            "Please enter a valid email address (e.g., name@example.com).",
         },
         ko: {
           "page.title": "문의 - NFD",
@@ -468,7 +567,7 @@
           "nav.contact": "문의하기",
           "contact.heading": "문의하기",
           "contact.subtitle":
-            "프로젝트가를 고민 중이거나 중요한 과제에 직면해 있나요? \n 전문성과 진정성을 바탕으로 목적 중심의 솔루션을 제공합니다. 언제든지 문의 주세요",
+            "프로젝트를 고민 중이거나 중요한 과제에 직면해 있나요? \n 전문성과 진정성을 바탕으로 목적 중심의 솔루션을 제공합니다. 언제든지 문의 주세요",
           "contact.addr.title": "주소",
           "contact.addr.text": "서울시 강남구 논현동 199-2",
           "contact.email.title": "이메일",
@@ -483,6 +582,9 @@
           "form.alert.success": "성공적으로 전송되었습니다. 감사합니다!",
           "form.alert.error": "전송 중 문제가 발생했습니다. 다시 시도해주세요.",
           "form.alert.exception": "에러 발생: ",
+          "map.hint": "지도를 불러오려면 클릭",
+          "form.email.invalid":
+            "올바른 이메일 주소를 입력해 주세요 (예: name@example.com).",
         },
       };
 
@@ -532,6 +634,8 @@
 
         localStorage.setItem(LS_KEY, lang);
         CURRENT_LANG = lang;
+        const email = document.getElementById("emailInput");
+        if (email) email.setCustomValidity("");
       }
 
       // Add KO/EN toggle into navbar if not present (in case of markup changes)
@@ -557,6 +661,32 @@
 
       // Initialize language
       setLang(detectInitialLang());
+
+      // ---- Field validation (email) ----
+      (function attachEmailValidation() {
+        const email = document.getElementById("emailInput");
+        if (!email) return;
+        function message() {
+          const dict = I18N[CURRENT_LANG || detectInitialLang()] || I18N.en;
+          return (
+            dict["form.email.invalid"] || "Please enter a valid email address."
+          );
+        }
+        // Clear custom message on input and re-validate
+        email.addEventListener("input", () => {
+          email.setCustomValidity("");
+          // if field has value but browser says invalid, set message so UI can show it on submit
+          if (email.validity.typeMismatch || email.validity.patternMismatch) {
+            email.setCustomValidity(message());
+          }
+        });
+        // When invalid event fires, set our localized message
+        email.addEventListener("invalid", () => {
+          if (email.validity.typeMismatch || email.validity.patternMismatch) {
+            email.setCustomValidity(message());
+          }
+        });
+      })();
 
       // ---- Form submit (localized alerts) ----
       const form = document.getElementById("contact-form");
