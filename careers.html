@@ -206,6 +206,90 @@
           max-height: 36px;
         }
       }
+      /* Careers - Job Cards */
+      .job-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(220px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 1rem auto 4rem;
+        padding: 0 1rem;
+      }
+
+      @media (max-width: 1200px) {
+        .job-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 576px) {
+        .job-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .job-card {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 14px;
+        padding: 1.25rem;
+        text-decoration: none;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          border-color 0.2s ease;
+        color: inherit;
+        justify-content: flex-start;
+      }
+
+      .job-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        border-color: var(--highlight-color);
+      }
+
+      .job-card__icon {
+        width: 56px;
+        height: 56px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+      .job-card__icon img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+      }
+
+      .job-card__body {
+        flex: 1;
+        text-align: left;
+        margin-left: -56px;
+        padding-left: 56px;
+      }
+      .job-card__title {
+        font-size: 1.4rem;
+        font-weight: 550;
+        /* margin: 0 0 0.35rem 0; */
+        color: #222;
+      }
+      html[lang="ko"] .job-card__title {
+        margin-top: 12px;
+      }
+      html[lang="ko"] .job-card__title.no-margin {
+        margin-top: 0 !important;
+      }
+      .job-card__desc {
+        margin-top: 1.5rem;
+        font-size: 1.15rem;
+        line-height: 1.5;
+        color: #555;
+        text-align: left;
+      }
     </style>
   </head>
   <body>
@@ -235,10 +319,7 @@
               >
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link active"
-                href="services.html"
-                data-i18n="nav.services"
+              <a class="nav-link" href="services.html" data-i18n="nav.services"
                 >Services</a
               >
             </li>
@@ -248,7 +329,10 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="careers.html" data-i18n="nav.careers"
+              <a
+                class="nav-link active"
+                href="careers.html"
+                data-i18n="nav.careers"
                 >Careers</a
               >
             </li>
@@ -291,192 +375,130 @@
       class="container d-flex flex-column flex-grow-1 mt-5"
       style="margin-top: auto; margin-bottom: auto"
     >
-      <h2 class="section-title" data-i18n="services.heading">Services</h2>
+      <h2 class="section-title" data-i18n="services.heading">Careers</h2>
       <p class="section-subtitle" data-i18n="services.subtitle">
         Driven by necessity, we provide solutions that help clients navigate
         challenges with integrity and foresight.
       </p>
+      <section aria-labelledby="open-roles-heading">
+        <h3 id="open-roles-heading" class="visually-hidden">Open Roles</h3>
+        <div class="job-grid">
+          <a class="job-card" href="careers-architect-engineer.html">
+            <div class="job-card__icon">
+              <img src="images/icon 03-2.png" alt="Architect Engineer icon" />
+            </div>
+            <div class="job-card__body">
+              <h4 class="job-card__title" data-i18n="jobs.architect.title">
+                Architect Engineer
+              </h4>
+              <p class="job-card__desc" data-i18n="jobs.architect.desc">
+                Lead architectural planning and design for data center
+                facilities with a focus on resilience and efficiency.
+              </p>
+            </div>
+          </a>
 
-      <div class="services-grid">
-        <div class="service-box">
-          <a href="engineeringConsulting.html">
-            <img
-              src="images/icon 02-1.png"
-              data-hover="images/icon 02-2.png"
-              alt="Engineering Consulting"
-              onmouseover="this.src='images/icon 02-2.png'"
-              onmouseout="this.src='images/icon 02-1.png'"
-          /></a>
-          <div class="service-content">
-            <div class="service-title" data-i18n="svc.eng.title">
-              Engineering Consulting
+          <a class="job-card" href="careers-estate-development.html">
+            <div class="job-card__icon">
+              <img src="images/icon 04-2.png" alt="Real-estate Manager icon" />
             </div>
-            <div class="service-text" data-i18n="svc.eng.text">
-              We deliver expert engineering consulting solutions, from design
-              and analysis to implementation and optimization.
+            <div class="job-card__body">
+              <h4
+                class="job-card__title no-margin"
+                data-i18n="jobs.realestate.title"
+              >
+                Real-estate Manager
+              </h4>
+              <p class="job-card__desc" data-i18n="jobs.realestate.desc">
+                Drive site acquisition, contracts, and development coordination
+                for new data center locations.
+              </p>
             </div>
-          </div>
-        </div>
+          </a>
 
-        <div class="service-box">
-          <a href="projectManager.html">
-            <img
-              src="images/icon 03-1.png"
-              data-hover="images/icon 03-2.png"
-              alt="Project Management"
-              onmouseover="this.src='images/icon 03-2.png'"
-              onmouseout="this.src='images/icon 03-1.png'"
-          /></a>
-          <div class="service-content">
-            <div class="service-title" data-i18n="svc.pm.title">
-              Project Management
+          <a class="job-card" href="careers-mechanical-electrical.html">
+            <div class="job-card__icon">
+              <img src="images/icon 05-2.png" alt="Mechanical Engineer icon" />
             </div>
-            <div class="service-text" data-i18n="svc.pm.text">
-              We provide end-to-end project management services, ensuring every
-              project is delivered on time, within budget, and to the highest
-              standards.
+            <div class="job-card__body">
+              <h4 class="job-card__title" data-i18n="jobs.mechanical.title">
+                Mechanical Engineer
+              </h4>
+              <p class="job-card__desc" data-i18n="jobs.mechanical.desc">
+                Design and optimize cooling, HVAC, and piping systems to ensure
+                high availability and efficiency.
+              </p>
             </div>
-          </div>
-        </div>
+          </a>
 
-        <div class="service-box">
-          <a href="lease-management.html">
-            <img
-              src="images/icon 04-1.png"
-              data-hover="images/icon 04-2.png"
-              alt="Lease Management"
-              onmouseover="this.src='images/icon 04-2.png'"
-              onmouseout="this.src='images/icon 04-1.png'"
-          /></a>
-          <div class="service-content">
-            <div class="service-title" data-i18n="svc.lease.title">
-              Lease Management
+          <a class="job-card" href="careers-mechanical-electrical.html">
+            <div class="job-card__icon">
+              <img
+                src="images/icon 07-2.png"
+                alt="Electrical Engineer icon"
+                style="height: 50px; width: auto"
+              />
             </div>
-            <div class="service-text" data-i18n="svc.lease.text">
-              End-to-end lease management that ensures compliance, clarity, and
-              control across your property portfolio.
+            <div class="job-card__body">
+              <h4 class="job-card__title" data-i18n="jobs.electrical.title">
+                Electrical Engineer
+              </h4>
+              <p class="job-card__desc" data-i18n="jobs.electrical.desc">
+                Architect power distribution, backup, and monitoring to meet
+                stringent uptime requirements.
+              </p>
             </div>
-          </div>
+          </a>
         </div>
-
-        <div class="service-box">
-          <a href="commissioning-agent.html">
-            <img
-              src="images/icon 01-1.png"
-              data-hover="images/icon 01-2.png"
-              alt="Commissioning Agent"
-              onmouseover="this.src='images/icon 01-2.png'"
-              onmouseout="this.src='images/icon 01-1.png'"
-          /></a>
-          <div class="service-content">
-            <div class="service-title" data-i18n="svc.cx.title">
-              Commissioning Agent
-            </div>
-            <div class="service-text" data-i18n="svc.cx.text">
-              As your commissioning agent, we validate every system for
-              functionality, efficiency, and long-term reliability.
-            </div>
-          </div>
-        </div>
-
-        <div class="service-box">
-          <a href="facility-management.html">
-            <img
-              src="images/icon 05-1.png"
-              data-hover="images/icon 05-2.png"
-              alt="Facility Management"
-              onmouseover="this.src='images/icon 05-2.png'"
-              onmouseout="this.src='images/icon 05-1.png'"
-          /></a>
-          <div class="service-content">
-            <div class="service-title" data-i18n="svc.fm.title">
-              Facility Management
-            </div>
-            <div class="service-text" data-i18n="svc.fm.text">
-              Ensuring your facilities run smoothly — with proactive
-              maintenance, compliance, and operational support.
-            </div>
-          </div>
-        </div>
-
-        <div class="service-box">
-          <a href="integration.html">
-            <img
-              src="images/icon 06-1.png"
-              data-hover="images/icon 06-2.png"
-              alt="BMS/EPMS Integration"
-              onmouseover="this.src='images/icon 06-2.png'"
-              onmouseout="this.src='images/icon 06-1.png'"
-          /></a>
-          <div class="service-content">
-            <div class="service-title" data-i18n="svc.integration.title">
-              BMS/EPMS Integration
-            </div>
-            <div class="service-text" data-i18n="svc.integration.text">
-              We integrate diverse systems to enable real-time monitoring, fault
-              detection, and energy optimization.
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     </main>
     <script>
       const I18N = {
         en: {
-          "page.title": "Services - NFD",
+          "page.title": "Careers - NFD",
           "nav.about": "About Us",
           "nav.services": "Services",
           "nav.ourwork": "Our Work",
+          "nav.careers": "Careers",
           "nav.contact": "Contact",
-          "services.heading": "Services",
+          "services.heading": "Careers",
           "services.subtitle":
-            "Driven by necessity, we provide solutions that help clients navigate challenges with integrity and foresight.",
-          "svc.eng.title": "Engineering Consulting",
-          "svc.eng.text":
-            "We deliver expert engineering consulting solutions, from design and analysis to implementation and optimization.",
-          "svc.pm.title": "Project Management",
-          "svc.pm.text":
-            "We provide end-to-end project management services, ensuring every project is delivered on time, within budget, and to the highest standards.",
-          "svc.lease.title": "Lease Management",
-          "svc.lease.text":
-            "End-to-end lease management that ensures compliance, clarity, and control across your property portfolio.",
-          "svc.cx.title": "Commissioning Agent",
-          "svc.cx.text":
-            "As your commissioning agent, we validate every system for functionality, efficiency, and long-term reliability.",
-          "svc.fm.title": "Facility Management",
-          "svc.fm.text":
-            "Ensuring your facilities run smoothly — with proactive maintenance, compliance, and operational support.",
-          "svc.integration.title": "BMS/EPMS Integration",
-          "svc.integration.text":
-            "We integrate diverse systems to enable real-time monitoring, fault detection, and energy optimization.",
+            "We are seeking exceptional professionals to lead the future of the data center industry with us.",
+          "jobs.architect.title": "Architect Engineer",
+          "jobs.architect.desc":
+            "Manage data center projects from due diligence through design development, permitting, construction and turnover.",
+          "jobs.realestate.title": "Real-estate Manager",
+          "jobs.realestate.desc":
+            "Land deal sourcing, structuring, due diligence, and negotiation of key terms and transaction documents.",
+          "jobs.mechanical.title": "Mechanical Engineer",
+          "jobs.mechanical.desc":
+            "Design and review mechanical systems including HVAC, piping, cooling, and fire protection for data center facilities.",
+          "jobs.electrical.title": "Electrical Engineer",
+          "jobs.electrical.desc":
+            "Manage project schedules, budgets, and risks from a mechanical and electrical engineering perspective.",
         },
         ko: {
-          "page.title": "서비스 - NFD",
+          "page.title": "인재채용 - NFD",
           "nav.about": "회사소개",
           "nav.services": "사업영역",
           "nav.ourwork": "주요 프로젝트",
+          "nav.careers": "인재채용",
           "nav.contact": "문의하기",
-          "services.heading": "사업영역",
+          "services.heading": "인재채용",
           "services.subtitle":
-            "필요에 따라 움직이며, 고객이 도전 과제를 정직하고 선견지명 있게 \n해결할 수 있도록 최적의 솔루션을 제공합니다.",
-          "svc.eng.title": "엔지니어링 컨설팅",
-          "svc.eng.text":
-            "설계와 분석부터 실행 및 최적화에 이르기까지 전문적인 엔지니어링 컨설팅 솔루션을 제공합니다.",
-          "svc.pm.title": "프로젝트 관리",
-          "svc.pm.text":
-            "기획부터 완료까지 전 단계를 책임지는 프로젝트 관리로, 일정과 예산을 준수하며 최상의 품질을 보장합니다.",
-          "svc.lease.title": "임대 관리",
-          "svc.lease.text":
-            "임대차 전 과정을 아우르며, 부동산 포트폴리오 전반에 걸쳐 규정 준수와 투명한 관리, 체계적인 통제를 제공합니다.",
-          "svc.cx.title": "커미셔닝 에이전트",
-          "svc.cx.text":
-            "커미셔닝 에이전트로서, 각 시스템이 정상 작동하고 효율적이며 장기적, 안정적으로 운영될 수 있도록 철저히 검증합니다.",
-          "svc.fm.title": "시설 관리",
-          "svc.fm.text":
-            "예방적 유지보수와 규정 준수, 체계적인 운영 지원을 통해 시설이 안정적으로 운영되도록 보장합니다.",
-          "svc.integration.title": "BMS/EPMS 통합",
-          "svc.integration.text":
-            "다양한 시스템을 연동하여 실시간 상태 감시, 이상 징후 탐지, 에너지효율 향상을 지원합니다.",
+            "데이터 센터 산업의 미래를 함께 이끌어갈 역량 있는 전문가를 찾습니다.",
+          "jobs.architect.title": "건축 엔지니어",
+          "jobs.architect.desc":
+            "실사부터 설계 개발, 인허가, 시공 및 인수인계에 이르는 데이터 센터 프로젝트 전반의 관리",
+          "jobs.realestate.title": "부동산 <br>개발 매니저",
+          "jobs.realestate.desc":
+            "부지 거래의 발굴부터 구조화, 실사 진행, 주요 조건 및 거래 문서 협상에 이르는 전 과정 관리",
+          "jobs.mechanical.title": "기계 엔지니어",
+          "jobs.mechanical.desc":
+            "데이터 센터 내 공기 흐름, 열 분포, 냉각 성능 및 발전기(GENSET) 효율에 적용되는 전산유체역학(CFD)의 기본 개념을 이해하고 있는 인재",
+          "jobs.electrical.title": "전기 엔지니어",
+          "jobs.electrical.desc":
+            "데이터 센터 전기설비(GENSET, UPS, MV, LV SWBD & ATS 동작계통 설계 및 검토 / 설계 결정사항, 기술 보고서, 커미셔닝 결과 문서화",
         },
       };
 
@@ -499,7 +521,7 @@
           document.querySelectorAll("[data-i18n]").forEach((el) => {
             const key = el.getAttribute("data-i18n");
             if (!dict[key]) return;
-            el.textContent = dict[key];
+            el.innerHTML = dict[key];
           });
           if (dict["page.title"]) document.title = dict["page.title"];
           document.documentElement.setAttribute("lang", lang);
