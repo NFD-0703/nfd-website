@@ -209,14 +209,16 @@
       /* Careers - Job Cards */
       .job-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(220px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
+        grid-template-columns: repeat(5, minmax(280px, 1fr));
+        gap: 2.5rem;
+        max-width: 100%;
         margin: 1rem auto 4rem;
         padding: 0 1rem;
+        justify-content: center;
+        justify-items: center;
       }
 
-      @media (max-width: 1200px) {
+      @media (max-width: 1550px) {
         .job-grid {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -383,21 +385,6 @@
       <section aria-labelledby="open-roles-heading">
         <h3 id="open-roles-heading" class="visually-hidden">Open Roles</h3>
         <div class="job-grid">
-          <a class="job-card" href="careers-architect-engineer.html">
-            <div class="job-card__icon">
-              <img src="images/icon 03-2.png" alt="Architect Engineer icon" />
-            </div>
-            <div class="job-card__body">
-              <h4 class="job-card__title" data-i18n="jobs.architect.title">
-                Architect Engineer
-              </h4>
-              <p class="job-card__desc" data-i18n="jobs.architect.desc">
-                Lead architectural planning and design for data center
-                facilities with a focus on resilience and efficiency.
-              </p>
-            </div>
-          </a>
-
           <a class="job-card" href="careers-estate-development.html">
             <div class="job-card__icon">
               <img src="images/icon 04-2.png" alt="Real-estate Manager icon" />
@@ -410,8 +397,42 @@
                 Real-estate Manager
               </h4>
               <p class="job-card__desc" data-i18n="jobs.realestate.desc">
-                Drive site acquisition, contracts, and development coordination
-                for new data center locations.
+                Land deal sourcing, structuring, due diligence, and negotiation
+                of key terms and transaction documents
+              </p>
+            </div>
+          </a>
+
+          <a class="job-card" href="careers-architect-engineer.html">
+            <div class="job-card__icon">
+              <img src="images/icon 03-2.png" alt="Architect Engineer icon" />
+            </div>
+            <div class="job-card__body">
+              <h4 class="job-card__title" data-i18n="jobs.architect.title">
+                Senior Project Manager
+              </h4>
+              <p class="job-card__desc" data-i18n="jobs.architect.desc">
+                Manage data center projects from due diligence through design
+                development, permitting, construction and turnover.
+              </p>
+            </div>
+          </a>
+
+          <a class="job-card" href="careers-csa-engineer.html">
+            <div class="job-card__icon">
+              <img src="images/icon 03-2.png" alt="Mechanical Engineer icon" />
+            </div>
+            <div class="job-card__body">
+              <h4
+                class="job-card__title no-margin"
+                data-i18n="jobs.csa.manager.title"
+              >
+                Senior CSA Engineer
+              </h4>
+              <p class="job-card__desc" data-i18n="jobs.csa.manager.desc">
+                Create and review Civil, Structural, and Architectural design
+                for data center facilities Create and manage CSA design
+                documentation
               </p>
             </div>
           </a>
@@ -425,8 +446,8 @@
                 Mechanical Engineer
               </h4>
               <p class="job-card__desc" data-i18n="jobs.mechanical.desc">
-                Design and optimize cooling, HVAC, and piping systems to ensure
-                high availability and efficiency.
+                Design and review mechanical systems including HVAC, piping,
+                cooling, and fire protection for data center facilities
               </p>
             </div>
           </a>
@@ -444,8 +465,8 @@
                 Electrical Engineer
               </h4>
               <p class="job-card__desc" data-i18n="jobs.electrical.desc">
-                Architect power distribution, backup, and monitoring to meet
-                stringent uptime requirements.
+                Manage project schedules, budgets, and risks from a mechanical
+                and electrical engineering perspective
               </p>
             </div>
           </a>
@@ -464,12 +485,15 @@
           "services.heading": "Careers",
           "services.subtitle":
             "We are seeking exceptional professionals to lead the future of the data center industry with us.",
-          "jobs.architect.title": "Architect Engineer",
+          "jobs.architect.title": "Senior Project Manager",
           "jobs.architect.desc":
             "Manage data center projects from due diligence through design development, permitting, construction and turnover.",
           "jobs.realestate.title": "Real-estate Manager",
           "jobs.realestate.desc":
             "Land deal sourcing, structuring, due diligence, and negotiation of key terms and transaction documents.",
+          "jobs.csa.manager.title": "Senior CSA Engineer",
+          "jobs.csa.manager.desc":
+            "Create and review Civil, Structural, and Architectural design for data center facilities. Create and manage CSA design documentation",
           "jobs.mechanical.title": "Mechanical Engineer",
           "jobs.mechanical.desc":
             "Design and review mechanical systems including HVAC, piping, cooling, and fire protection for data center facilities.",
@@ -493,6 +517,9 @@
           "jobs.realestate.title": "부동산 <br>개발 매니저",
           "jobs.realestate.desc":
             "부지 거래의 발굴부터 구조화, 실사 진행, 주요 조건 및 거래 문서 협상에 이르는 전 과정 관리",
+          "jobs.csa.manager.title": "시니어 <br>건축 엔지니어 ",
+          "jobs.csa.manager.desc":
+            "데이터 센터 토목, 구조, 건축 설계 및 검토/ CSA 설계 및 검토",
           "jobs.mechanical.title": "기계 엔지니어",
           "jobs.mechanical.desc":
             "데이터 센터 내 공기 흐름, 열 분포, 냉각 성능 및 발전기(GENSET) 효율에 적용되는 전산유체역학(CFD)의 기본 개념을 이해하고 있는 인재",
