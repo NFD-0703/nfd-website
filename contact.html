@@ -273,6 +273,17 @@
         color: #0b1020;
         border-color: transparent;
       }
+      /* Increase spacing between 'Contact' and language toggle on collapsed navbar */
+      @media (max-width: 991.98px) {
+        .navbar-nav .nav-item:last-child {
+          margin-bottom: 0.75rem; /* space below 'Contact' */
+        }
+        .navbar .lang-toggle {
+          margin-top: 0.75rem; /* push language toggle down */
+          padding-top: 0.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.25); /* subtle divider */
+        }
+      }
     </style>
     <link rel="preconnect" href="https://www.google.com" crossorigin />
     <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />

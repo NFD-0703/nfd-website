@@ -120,20 +120,6 @@
         margin-right: auto;
       }
 
-      @media (max-width: 768px) {
-        .services-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .services-grid {
-          grid-template-columns: 1fr;
-          justify-items: start;
-          text-align: left;
-        }
-      }
-
       .service-box {
         max-width: 100%;
         text-align: left;
@@ -155,16 +141,6 @@
         margin-bottom: 0;
         transition: all 0.3s ease;
       }
-      /* Restrict hover effects to desktop only */
-      @media (hover: hover) and (pointer: fine) {
-        .service-box:hover {
-          transform: translateY(-4px);
-        }
-
-        .service-box:hover img[data-hover] {
-          content: attr(data-hover);
-        }
-      }
 
       .service-title {
         text-align: left;
@@ -180,6 +156,16 @@
         line-height: 1.5;
         text-align: left;
         white-space: pre-line;
+      }
+      /* Restrict hover effects to desktop only */
+      @media (hover: hover) and (pointer: fine) {
+        .service-box:hover {
+          transform: translateY(-4px);
+        }
+
+        .service-box:hover img[data-hover] {
+          content: attr(data-hover);
+        }
       }
 
       @media (max-width: 768px) {
@@ -204,6 +190,44 @@
         footer.logo-strip img {
           margin: 1rem;
           max-height: 36px;
+        }
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+          justify-items: start;
+          text-align: left;
+        }
+        /* Language Toggle */
+        .lang-toggle {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-left: 1rem;
+        }
+        .lang-toggle .lang-btn {
+          border: 1px solid rgba(255, 255, 255, 0.35);
+          color: #fff;
+          background: transparent;
+          padding: 0.25rem 0.6rem;
+          border-radius: 999px;
+          font-weight: 600;
+          line-height: 1;
+          cursor: pointer;
+        }
+        .lang-toggle .lang-btn[aria-pressed="true"] {
+          background: #50c7d2;
+          color: #0b1020;
+          border-color: transparent;
+        }
+        .navbar-nav .nav-item:last-child {
+          margin-bottom: 0.75rem; /* space below 'Contact' */
+        }
+        .navbar .lang-toggle {
+          margin-top: 0.75rem; /* push language toggle down */
+          padding-top: 0.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.25); /* subtle divider */
         }
       }
     </style>
