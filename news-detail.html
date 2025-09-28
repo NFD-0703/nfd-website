@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Management - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #000;
+      }
+
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff !important;
+      }
+
+      .navbar-nav {
+        gap: 2.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .header-section {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+
+      .header-section h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        border-bottom: 3px solid var(--highlight-color);
+        display: inline-block;
+        padding-bottom: 0.5rem;
+      }
+
+      .header-section p {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .content-section {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+      }
+
+      /* Language Toggle (unified) */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-nav .nav-item:last-child {
+          margin-bottom: 0.75rem; /* space below 'Contact' */
+        }
+        .navbar .lang-toggle {
+          margin-top: 0.75rem; /* push language toggle down */
+          padding-top: 0.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.25); /* subtle divider */
+        }
+      }
+
+      /* News Cards */
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .news-card {
+        background: #f6f7f9;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .news-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      }
+      .news-media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #ddd center/cover no-repeat;
+      }
+      .news-badge {
+        position: absolute;
+        left: 16px;
+        bottom: 12px;
+        background: #eaf8fa;
+        color: var(--highlight-color);
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 6px 12px;
+        border-radius: 999px;
+        letter-spacing: 0.02em;
+      }
+      .news-body {
+        padding: 1rem 1.25rem 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .news-title {
+        font-size: 1.15rem;
+        line-height: 1.45;
+        font-weight: 600;
+        color: #0b1020;
+        margin: 0;
+        text-decoration: none;
+      }
+      .news-meta {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.25rem 1rem;
+        color: #6b7280;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.6);
+      }
+      .news-card a.stretched {
+        text-decoration: none;
+        color: inherit;
+      }
+      @media (max-width: 991.98px) {
+        .news-grid {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+        }
+      }
+
+      /* --- News Detail Layout --- */
+      .detail-container {
+        display: grid;
+        grid-template-columns: 1.1fr 1.4fr;
+        gap: 3rem;
+        align-items: start;
+        margin-top: 2rem;
+      }
+      .detail-media {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #f3f4f6 center/contain no-repeat;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      }
+      .publish-date {
+        margin-top: 0.75rem;
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+      .detail-title {
+        margin: 0 0 1rem;
+        font-size: 2rem;
+        line-height: 1.3;
+        font-weight: 700;
+        color: #0b1020;
+      }
+      .detail-title .hl {
+        color: var(--highlight-color);
+      }
+      .detail-body {
+        font-size: 1.1rem;
+        line-height: 1.75;
+        color: #111827;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .detail-back {
+        margin-top: 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        text-decoration: none;
+        color: #0b1020;
+        font-weight: 600;
+      }
+      .detail-back:hover {
+        color: var(--highlight-color);
+      }
+      .detail-body a {
+        color: var(--highlight-color);
+        text-decoration: underline;
+        pointer-events: auto;
+        word-break: break-word; /* 긴 URL 줄바꿈 */
+      }
+      .detail-body a:hover {
+        opacity: 0.85;
+      }
+      @media (max-width: 991.98px) {
+        .detail-container {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+        }
+        .detail-title {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html" data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
+                >Our Work</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="news.html" data-i18n="nav.news"
+                >News</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="careers.html" data-i18n="nav.careers"
+                >Careers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <div
+            class="lang-toggle ms-lg-3"
+            role="group"
+            aria-label="Language selector"
+          >
+            <button
+              id="btnKO"
+              type="button"
+              class="lang-btn"
+              data-lang="ko"
+              aria-pressed="false"
+            >
+              KO
+            </button>
+            <button
+              id="btnEN"
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header-section">
+      <h1 data-i18n="pm.heading">News</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section">
+      <div id="detail-root"></div>
+    </div>
+    <script>
+      // --- News detail data (EN/KR) ---
+      const NEWS_DATA = {
+        n1: {
+          media: "images/News_01.png",
+          date: {
+            en: "Published on July 25, 2025",
+            ko: "게시일: 2025년 7월 25일",
+          },
+          title: {
+            en: "NFD Opens Official LinkedIn Page to Share Insights, Updates, and Build Community Connections",
+            ko: "NFD, 공식 Linkedin 페이지 오픈 – 인사이트 공유 및 커뮤니티 소통 강화",
+          },
+          body: {
+            en: [
+              "NFD is excited to announce the launch of its official LinkedIn page, marking a new chapter in how the company engages with industry professionals, clients, and partners.",
+              "This platform will serve as a hub for sharing expert insights, project milestones, and the latest updates from across the data center and infrastructure sectors.",
+              "As part of its mission to foster transparent communication and community growth, NFD invites you to follow its page and become part of the conversation.",
+              "Whether you're interested in cutting-edge engineering developments, sustainability in data center design, or updates on key project deployments, the page promises valuable content for all stakeholders.",
+            ],
+            ko: [
+              "NFD는 업계 전문가, 고객, 파트너사와 새로운 소통 방식을 열며 공식 Linkedin 페이지 개설 소식을 전하게 되어 매우 기쁩니다.",
+              "이 플랫폼은 데이터 센터 및 인프라 분야 전반에 걸친 전문 인사이트, 프로젝트 주요 이정표, 최신 소식을 공유하는 중심 채널로 운영될 예정입니다.",
+              "투명한 커뮤니케이션과 커뮤니티 성장을 추구하는 NFD의 비전 아래, 여러분을 공식 페이지에 초대합니다. 팔로우하시고 대화에 함께해 주세요",
+              "최신 엔지니어링 동향, 지속 가능한 데이터 센터 설계, 주요 프로젝트 진행 상황 등에 관심이 있으시다면, 이 페이지는 모든 이해관계자에게가치 있는 정보를 제공할 것입니다.",
+              '지금 팔로우 하세요: <a href="https://www.linkedin.com/company/nfd-home" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/company/nfd-home</a>',
+            ],
+          },
+        },
+        n2: {
+          media: "images/News_02.png",
+          date: {
+            en: "Published on Sep 24, 2025",
+            ko: "게시일: 2025년 9월 24일",
+          },
+          title: {
+            en: "New 80MW Data Center Coming to Greater Seoul: Warburg Pincus Acquires Site",
+            ko: "서울 수도권에 80MW 규모의 신규 데이터 센터 건립 예정 – 워버그 피니스, 부지 인수 완료",
+          },
+          body: {
+            en: [
+              "Warburg Pincus has acquired a greenfield site in South Korea for development of an 80-megawatt data centre in partnership with Seoul-based Wide Creek Asset Management and digital infrastructure specialist DC Connects on the project.",
+              "The partners recently broke ground on the project in Yongin City in Seoul’s surrounding Gyeonggi province, according to a Wednesday announcement, with the facility expected to be ready for service by 2027.",
+              'For more details on this project, please visit: <a href="https://lnkd.in/g3FmTfVV" target="_blank" rel="noopener noreferrer">https://lnkd.in/g3FmTfVV</a>',
+            ],
+            ko: [
+              "워버그 피니스, 80MW 규모 데이터 센터 개발 위해 한국 그린필드 부지 인수 - 와이드크릭자산운용 및 DC Connects와 파트너십 체결",
+              "워버그 피니스(Warburg Pincus)는 서울에 본사를 둔 와이드크릭자산운용(Wide Creek Asset Management) 및 디지털 인프라 전문 기업 DC Connects와 협력하 여 80메가와트(MW) 규모의 데이터 센터를 개발하기 위해 한국 내 그린필드 부지를 인수했습니다.",
+              "이번 프로젝트는 경기도 용인시에서 착공되었으며, 2027년 서비스 개시를 목표로 하고 있습니다",
+              '프로젝트에 대한 자세한 내용은 아래 기사를 확인해 주세요: <br/> <a href="https://lnkd.in/g3FmTfVV" target="_blank" rel="noopener noreferrer">https://lnkd.in/g3FmTfVV</a>',
+            ],
+          },
+        },
+      };
+      // Parse id from URL (?id=n1)
+      const CURRENT_ID = new URLSearchParams(location.search).get("id") || "n1";
+      function renderDetail(lang = "en") {
+        const node = document.getElementById("detail-root");
+        const item = NEWS_DATA[CURRENT_ID] || NEWS_DATA["n1"];
+        const t = item.title[lang] || item.title.en;
+        const d = item.date[lang] || item.date.en;
+        const ps = item.body[lang] || item.body.en;
+        node.innerHTML = `
+          <div class="detail-container">
+            <div>
+              <div class="detail-media" style="background-image:url('${
+                item.media
+              }')"></div>
+              <div class="publish-date">${d}</div>
+            </div>
+            <div>
+              <h2 class="detail-title"><span class="hl">“</span>${t}<span class="hl">”</span></h2>
+              <div class="detail-body">
+                ${ps.map((p) => `<p>${p}</p>`).join("")}
+              </div>
+              <a class="detail-back" href="news.html" aria-label="Back to list">← Back to list</a>
+            </div>
+          </div>`;
+      }
+
+      const I18N = {
+        en: {
+          "page.title": "News",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.news": "News",
+          "nav.careers": "Careers",
+          "nav.contact": "Contact",
+          "pm.heading": "News",
+        },
+        ko: {
+          "page.title": "뉴스 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.news": "뉴스",
+          "nav.careers": "인재채용",
+          "nav.contact": "문의하기",
+          "pm.heading": "뉴스",
+        },
+      };
+
+      const LS_KEY = "siteLang";
+      const btnKO = document.getElementById("btnKO");
+      const btnEN = document.getElementById("btnEN");
+      const TRANSLATE_BODY = true;
+
+      function detectInitialLang() {
+        const saved = localStorage.getItem(LS_KEY);
+        if (saved === "ko" || saved === "en") return saved;
+        const nav = (navigator.language || "en").toLowerCase();
+        return nav.startsWith("ko") ? "ko" : "en";
+      }
+
+      function setLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        if (TRANSLATE_BODY) {
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const val = dict[key];
+            if (!val) return;
+            el.innerHTML = val.replace(/\n/g, "<br>");
+          });
+          if (dict["page.title"]) document.title = dict["page.title"];
+          document.documentElement.setAttribute("lang", lang);
+          renderDetail(lang);
+        }
+
+        const isKO = lang === "ko";
+        btnKO?.setAttribute("aria-pressed", String(isKO));
+        btnEN?.setAttribute("aria-pressed", String(!isKO));
+        localStorage.setItem(LS_KEY, lang);
+      }
+
+      btnKO?.addEventListener("click", () => setLang("ko"));
+      btnEN?.addEventListener("click", () => setLang("en"));
+
+      setLang(detectInitialLang());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Engineering Consulting - NFD</title>
+    <title>Project Management - NFD</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
@@ -85,90 +85,6 @@
         padding: 0 2rem;
       }
 
-      .content-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        align-items: flex-start;
-      }
-
-      .content-image {
-        flex: 1 1 40%;
-        min-width: 300px;
-        position: relative;
-        overflow: visible;
-      }
-      .overlay-bar {
-        position: absolute;
-        top: 0;
-        right: -30px;
-        width: 5px;
-        height: 120px;
-        background-color: var(--highlight-color);
-      }
-
-      .content-image img {
-        width: 110%;
-        max-width: none;
-        height: auto;
-        display: block;
-        margin-top: 40px;
-      }
-
-      .content-text {
-        flex: 1 1 55%;
-        min-width: 300px;
-        position: relative;
-      }
-
-      .core-services {
-        /* border-left: 4px solid var(--highlight-color); */
-        padding-left: 1.5rem;
-        margin-bottom: 2rem;
-        position: absolute;
-        top: 0;
-      }
-
-      .core-services h3 {
-        font-size: 1.5rem;
-        font-weight: 500;
-        margin-bottom: 1rem;
-        color: var(--highlight-color);
-        margin-left: -0.8rem;
-      }
-
-      .core-services ul {
-        list-style: none;
-        padding-left: 2rem;
-        margin: 0;
-        margin-top: 1rem;
-      }
-
-      .core-services ul li {
-        font-size: 1.15rem;
-        margin-bottom: 0.6rem;
-        padding-left: 1rem;
-        position: relative;
-      }
-
-      .core-services ul li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0.3rem;
-        width: 3px;
-        height: 1.2rem;
-        background-color: var(--highlight-color);
-        border-radius: 1px;
-      }
-
-      .description {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        margin-top: 25rem;
-        margin-left: 3.5rem;
-      }
-
       /* Language Toggle (unified) */
       .lang-toggle {
         display: flex;
@@ -193,47 +109,6 @@
       }
 
       @media (max-width: 768px) {
-        html {
-          font-size: 78%;
-        }
-
-        .header-section h1 {
-          font-size: 2rem;
-        }
-
-        .core-services {
-          position: static;
-          margin-bottom: 2rem;
-        }
-
-        .description {
-          margin-top: 2rem;
-        }
-
-        .core-services h3 {
-          font-size: 1.3rem;
-        }
-
-        .core-services ul li {
-          font-size: 1rem;
-        }
-
-        .description {
-          font-size: 1.05rem;
-        }
-
-        .overlay-bar {
-          display: none;
-        }
-
-        .content-image {
-          display: flex;
-          justify-content: center;
-        }
-
-        .content-image img {
-          margin: 0 auto;
-        }
         .navbar-nav .nav-item:last-child {
           margin-bottom: 0.75rem; /* space below 'Contact' */
         }
@@ -241,6 +116,79 @@
           margin-top: 0.75rem; /* push language toggle down */
           padding-top: 0.5rem;
           border-top: 1px solid rgba(255, 255, 255, 0.25); /* subtle divider */
+        }
+      }
+
+      /* News Cards */
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .news-card {
+        background: #f6f7f9;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .news-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      }
+      .news-media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #ddd center/cover no-repeat;
+      }
+      .news-badge {
+        position: absolute;
+        left: 16px;
+        bottom: 12px;
+        background: #eaf8fa;
+        color: var(--highlight-color);
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 6px 12px;
+        border-radius: 999px;
+        letter-spacing: 0.02em;
+      }
+      .news-body {
+        padding: 1rem 1.25rem 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .news-title {
+        font-size: 1.15rem;
+        line-height: 1.45;
+        font-weight: 600;
+        color: #0b1020;
+        margin: 0;
+        text-decoration: none;
+      }
+      .news-meta {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.25rem 1rem;
+        color: #6b7280;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.6);
+      }
+      .news-card a.stretched {
+        text-decoration: none;
+        color: inherit;
+      }
+      @media (max-width: 991.98px) {
+        .news-grid {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
         }
       }
     </style>
@@ -272,10 +220,7 @@
               >
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link active"
-                href="services.html"
-                data-i18n="nav.services"
+              <a class="nav-link" href="services.html" data-i18n="nav.services"
                 >Services</a
               >
             </li>
@@ -285,7 +230,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="news.html" data-i18n="nav.news">News</a>
+              <a class="nav-link active" href="news.html" data-i18n="nav.news"
+                >News</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="careers.html" data-i18n="nav.careers"
@@ -328,92 +275,77 @@
 
     <!-- Header -->
     <div class="header-section">
-      <h1 data-i18n="ec.heading">Engineering Consulting</h1>
-      <p data-i18n="ec.subtitle">Service Details</p>
+      <h1 data-i18n="pm.heading">News</h1>
     </div>
 
     <!-- Content -->
     <div class="content-section">
-      <div class="content-row">
-        <div class="content-image">
-          <img
-            src="images/02 Eng Consultant.webp"
-            alt="Engineering Consulting"
-          />
-          <div class="overlay-bar"></div>
-        </div>
-        <div class="content-text">
-          <div class="core-services">
-            <h3 data-i18n="ec.core">Core Services</h3>
-            <ul>
-              <li data-i18n="ec.li1">Demand Analysis & Capacity Planning</li>
-              <li data-i18n="ec.li2">Technical Due Diligence</li>
-              <li data-i18n="ec.li3">Site Feasibility Studies</li>
-              <li data-i18n="ec.li4">Peer Reviews</li>
-              <li data-i18n="ec.li5">Efficiency Optimization</li>
-              <li data-i18n="ec.li6">Recommendations</li>
-              <li data-i18n="ec.li7">Order of Magnitude Construction</li>
-              <li data-i18n="ec.li8">Major Equipment Estimates</li>
-              <li data-i18n="ec.li9">Energy Modeling & Analysis</li>
-            </ul>
+      <div class="news-grid">
+        <!-- Card 1 -->
+        <a
+          class="news-card stretched"
+          href="news-detail.html?id=n1"
+          aria-label="NFD LinkedIn page launch"
+        >
+          <div
+            class="news-media"
+            style="background-image: url('images/News_01.png')"
+          >
+            <span class="news-badge" data-i18n="news.badge">NEWS</span>
           </div>
-          <div class="description" data-i18n="ec.desc">
-            We deliver a comprehensive range of professional engineering
-            consulting services tailored to meet the evolving needs of our
-            clients. Our expertise spans multiple disciplines—including
-            technical due diligence—allowing us to support your projects from
-            initial concept to completion with precision and insight.
+          <div class="news-body">
+            <h3 class="news-title" data-i18n="news.title1"></h3>
           </div>
-        </div>
+          <div class="news-meta">Jul 25, 2025</div>
+        </a>
+        <!-- Card 2 -->
+        <a
+          class="news-card stretched"
+          href="news-detail.html?id=n2"
+          aria-label="80MW data center announcement"
+        >
+          <div
+            class="news-media"
+            style="background-image: url('images/News_02.png')"
+          >
+            <span class="news-badge" data-i18n="news.badge">NEWS</span>
+          </div>
+          <div class="news-body">
+            <h3 class="news-title" data-i18n="news.title2"></h3>
+          </div>
+          <div class="news-meta">Sep 24, 2025</div>
+        </a>
       </div>
     </div>
     <script>
       const I18N = {
         en: {
-          "page.title": "Engineering Consulting - NFD",
+          "page.title": "News",
           "nav.about": "About Us",
           "nav.services": "Services",
           "nav.ourwork": "Our Work",
           "nav.news": "News",
           "nav.careers": "Careers",
           "nav.contact": "Contact",
-          "ec.heading": "Engineering Consulting",
-          "ec.subtitle": "Service Details",
-          "ec.core": "Core Services",
-          "ec.li1": "Demand Analysis & Capacity Planning",
-          "ec.li2": "Technical Due Diligence",
-          "ec.li3": "Site Feasibility Studies",
-          "ec.li4": "Peer Reviews",
-          "ec.li5": "Efficiency Optimization",
-          "ec.li6": "Recommendations",
-          "ec.li7": "Order of Magnitude Construction",
-          "ec.li8": "Major Equipment Estimates",
-          "ec.li9": "Energy Modeling & Analysis",
-          "ec.desc":
-            "We deliver a comprehensive range of professional engineering consulting services tailored to meet the evolving needs of our clients. Our expertise spans multiple disciplines—including technical due diligence—allowing us to support your projects from initial concept to completion with precision and insight.",
+          "pm.heading": "News",
+          "news.title1":
+            "NFD Opens Official LinkedIn Page to Share Insights, Updates, and Build Community Connections",
+          "news.title2":
+            "New 80MW Data Center Coming to Greater Seoul: Warburg Pincus Acquires Site",
         },
         ko: {
-          "page.title": "엔지니어링 컨설팅 - NFD",
+          "page.title": "프로젝트 매니지먼트 - NFD",
           "nav.about": "회사소개",
           "nav.services": "사업영역",
           "nav.ourwork": "주요 프로젝트",
           "nav.news": "뉴스",
           "nav.careers": "인재채용",
           "nav.contact": "문의하기",
-          "ec.heading": "엔지니어링 컨설팅",
-          "ec.subtitle": "서비스 상세 내용",
-          "ec.core": "주요 서비스",
-          "ec.li1": "수요 분석 및 용량 계획",
-          "ec.li2": "기술 실사",
-          "ec.li3": "부지 타당성 조사",
-          "ec.li4": "전문가 검토",
-          "ec.li5": "운영 효율 최적화",
-          "ec.li6": "제안 사항",
-          "ec.li7": "개략 공사 규모 산정",
-          "ec.li8": "핵심 설비 예산 추정",
-          "ec.li9": "에너지 모델링 및 분석",
-          "ec.desc":
-            "저희의 엔지니어링 컨설팅 서비스는 변화하는 고객의 요구에 맞춘 종합적인 전문 엔지니어링 컨설팅 서비스를 제공합니다. 기술 실사를 포함한 다각적인 전문 역량을 바탕으로, 초기 구상부터 완료까지 정확하고 깊이 있는 지원을 약속드립니다.",
+          "pm.heading": "뉴스",
+          "news.title1":
+            "NFD, 공식 LinkedIn 페이지 개설 – 인사이트, 소식 공유 및 커뮤니티 연결 강화",
+          "news.title2":
+            "80MW 규모 데이터 센터, 수도권에 신규 조성: 워버그 핀커스 부지 인수",
         },
       };
 
