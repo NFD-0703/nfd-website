@@ -12,6 +12,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="shared/site-ui.css" />
     <style>
       :root {
         --highlight-color: #50c7d2;
@@ -68,7 +69,7 @@
         position: relative;
       }
 
-      .navbar-nav .nav-link.active::after {
+      .navbar-nav .nav-link.active::before {
         content: "";
         display: block;
         height: 4px;
@@ -79,6 +80,47 @@
         left: 0;
         border-radius: 2px;
       }
+
+      .navbar-nav .dropdown-toggle::after {
+        margin-left: 0.45rem;
+        vertical-align: 0.18em;
+      }
+
+      .navbar-nav .dropdown-toggle.active::before {
+        display: none;
+      }
+
+      .navbar-nav .dropdown-menu {
+        background-color: #111;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 0.5rem;
+        min-width: 12rem;
+      }
+
+      .navbar-nav .dropdown-item {
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 0.65rem 0.85rem;
+      }
+
+      .navbar-nav .dropdown-item:hover,
+      .navbar-nav .dropdown-item:focus {
+        background-color: var(--highlight-color);
+        color: #0b1020;
+      }
+
+      .navbar-nav .dropdown-item.active {
+        background-color: rgba(80, 199, 210, 0.18);
+        color: #dffbff;
+      }
+
+      .navbar-nav .dropdown-menu:hover .dropdown-item.active:not(:hover) {
+        background-color: transparent;
+        color: #fff;
+      }
+
 
       .header-section {
         background-color: #000;
@@ -225,84 +267,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
-                >About Us</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html" data-i18n="nav.services"
-                >Services</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
-                >Our Work</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="news.html" data-i18n="nav.news">News</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                href="careers.html"
-                data-i18n="nav.careers"
-                >Careers</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
-          <div
-            class="lang-toggle ms-lg-3"
-            role="group"
-            aria-label="Language selector"
-          >
-            <button
-              id="btnKO"
-              type="button"
-              class="lang-btn"
-              data-lang="ko"
-              aria-pressed="false"
-            >
-              KO
-            </button>
-            <button
-              id="btnEN"
-              type="button"
-              class="lang-btn"
-              data-lang="en"
-              aria-pressed="true"
-            >
-              EN
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <div id="site-nav"></div>
 
     <!-- Header -->
     <div class="header-section">
@@ -444,157 +409,15 @@
         >
       </div>
     </div>
+    <script src="shared/site-ui.js"></script>
+    <script src="shared/site-i18n.js"></script>
+    <script src="data/i18n/careers-csa-engineer.js"></script>
     <script>
-      const I18N = {
-        en: {
-          "page.title": "Careers – Architect Engineer - NFD",
-          "nav.about": "About Us",
-          "nav.services": "Services",
-          "nav.ourwork": "Our Work",
-          "nav.news": "News",
-          "nav.careers": "Careers",
-          "nav.contact": "Contact",
-          "career.ae.heading": "Senior CSA Engineer",
-          "career.title": "Senior CSA Engineer – Data Center Development",
-          "career.overview": "Position Overview",
-          "career.overview.body":
-            "We are a leading data center development company seeking a Senior CSA(Civil, Structural and Architectural) Engineer with direct experience in designing and delivering large-scale infrastructure projects. This role requires a strong background in CSA design, construction execution, and permission, along with the ability to collaborate across MEP disciplines and communicate effectively in English with global stakeholders.",
-          "career.resp": "Key Responsibilities",
-          "career.req": "Required Experience and Qualifications",
-          "career.loc": "Location",
-          "career.resp.1":
-            "Create and review Civil, Structural, and Architectural design for data center facilities",
-          "career.resp.2": "Create and manage CSA design documentation .",
-          "career.resp.3":
-            "Provide technical support during construction and commissioning phases, including site coordination and issue resolution",
-          "career.resp.4":
-            "Manage vendor, consultant, and contractor coordination to ensure design compliance and project alignment",
-          "career.resp.5":
-            "Manage project schedules, budgets, and risks from CSA engineering perspective co-ordinating with MEP disciplines",
-          "career.resp.6":
-            "Document design decisions and technical reports, and value engineering outcomes",
-          "career.resp.7":
-            "Manage vender RFP, bids, project budgets and schedule",
-          "career.resp.8":
-            "Conduct technical meetings and communicate with international clients and partners in English",
-          "career.req.1": "Bachelor’s degree in Architecture or Engineering",
-          "career.req.2":
-            "10+ years working experience in large-scale infrastructure, commercial, industrial, complex technical or mission critical projects such as data centers",
-          "career.req.3":
-            "Experience co-ordinating design and construction with MEP engineering disciplines on industrial facilities",
-          "career.req.4":
-            "Solid working proficiency with AutoCAD and MS Office Suite",
-          "career.req.5":
-            "Project management skills including vendor, consultant, and contractor management",
-          "career.req.6":
-            "Ability to find creative and innovative solutions to reduce costs while managing impact to quality, cost, and schedule.",
-          "career.req.7":
-            "Proficiency in English communication for technical discussions, documentation, and client interaction",
-          "career.req.8":
-            "Candidates must have no restrictions on international business travel",
-          "career.loc.1": "Seoul headquarters or metropolitan project sites",
-          "career.loc.2": "Occasional overseas travel may be required",
-          "career.apply": "Submit Your Application",
-        },
-        ko: {
-          "page.title": "채용 – 건축/엔지니어 - NFD",
-          "nav.about": "회사소개",
-          "nav.services": "사업영역",
-          "nav.ourwork": "주요 프로젝트",
-          "nav.news": "뉴스",
-          "nav.careers": "인재채용",
-          "nav.contact": "문의하기",
-          "career.ae.heading": "시니어 건축 엔지니어",
-          "career.title": "시니어 건축 엔지니어 – 데이터센터 개발",
-          "career.overview": "채용 개요",
-          "career.overview.body":
-            "당사는 대규모 데이터센터 개발을 전문으로 하는 기업으로, 실제 프로젝트 경험을 바탕으로 토목, 구조, 건축 설계 및 시공을 주도할 수 있는 시니어 엔지니어를 찾고 있습니다. 토목, 구조, 건축에 대한 설계, 시공, 인허가에 대한 깊은 배경지식을 겸비하고, 기계 전기 등 여러 분야에 걸쳐 협업하고 글로벌 파트너와의 영어 커뮤니케이션이 가능한 분을 모십니다.",
-          "career.resp": "주요 업무",
-          "career.req": "자격 요건",
-          "career.loc": "근무지",
-          "career.resp.1": "데이터센터 토목, 구조, 건축 설계 및 검토",
-          "career.resp.2": "데이터센터 CSA 설계 및 검토",
-          "career.resp.3":
-            "시공 및 시운전 단계에서 기술 지원 및 현장 이슈 대응",
-          "career.resp.4":
-            "자재공급업체, 설계사, 및 시공사와의 기술 조율 및 설계 적합성 검토",
-          "career.resp.5":
-            "기계전기 분야와 협력하며 CSA 엔지니어링 관점에서 프로젝트 일정, 예산 및 리스크 관리",
-          "career.resp.6": "설계 결정사항, 기술 보고서, VE 결과 문서화",
-          "career.resp.7": "자재공급업체 RFP, 입찰, 프로젝트 예산 및 일정관리",
-          "career.resp.8":
-            "영어 기반의 글로벌 고객 소통 및 협력사 기술 회의 진행",
-          "career.req.1": "건축 또는 공학 분야 학사 학위",
-          "career.req.2":
-            "대규모 인프라, 상업용, 산업용, 복합 기술 또는 미션 크리티컬 프로젝트(예: 데이터 센터 등) 분야에서 10년 이상의 실무 경력I  기계전기 분야 조율을 포함하여 인허가 기관 및 인허가 프로세스를 관리한 경험",
-          "career.req.3":
-            "산업 시설에서 MEP(기계, 전기, 배관) 엔지니어링 분야와의 설계 및 시공 협업 경험",
-          "career.req.4": "AutoCAD 및 MS Office Suite의 숙련된 활용 능력",
-          "career.req.5":
-            "협력업체, 컨설턴트, 시공사 등의 관리 경험을 포함한 프로젝트 관리 역량",
-          "career.req.6":
-            "품질, 비용, 일정에 미치는 영향을 고려하여 창의적이고 혁신적인 비용 절감 방안을 도출할 수 있는 능력",
-          "career.req.7":
-            "기술적 논의, 문서 작성, 고객 응대 등을 위한 영어 커뮤니케이션 능력",
-          "career.req.8": "해외 출장에 결격 사유가 없는 자",
-          "career.loc.1": "서울 본사 또는 수도권 프로젝트 현장",
-          "career.loc.2": "필요 시 해외 출장 가능",
-          "career.apply": "지원서 제출",
-        },
-      };
-
-      const LS_KEY = "siteLang";
-      const btnKO = document.getElementById("btnKO");
-      const btnEN = document.getElementById("btnEN");
-      const TRANSLATE_BODY = true;
-
-      function detectInitialLang() {
-        const saved = localStorage.getItem(LS_KEY);
-        if (saved === "ko" || saved === "en") return saved;
-        const nav = (navigator.language || "en").toLowerCase();
-        return nav.startsWith("ko") ? "ko" : "en";
-      }
-
-      function setLang(lang) {
-        const dict = I18N[lang] || I18N.en;
-
-        if (TRANSLATE_BODY) {
-          document.querySelectorAll("[data-i18n]").forEach((el) => {
-            const key = el.getAttribute("data-i18n");
-            const val = dict[key];
-            if (!val) return;
-            el.innerHTML = val.replace(/\n/g, "<br>");
-          });
-          if (dict["page.title"]) document.title = dict["page.title"];
-          document.documentElement.setAttribute("lang", lang);
-          // Toggle visibility for language-specific blocks
-          document.querySelectorAll("[data-visible-when]").forEach((el) => {
-            const when = (el.getAttribute("data-visible-when") || "")
-              .split(",")
-              .map((s) => s.trim());
-            const shouldShow = when.includes(lang) || when.includes("all");
-            if (shouldShow) {
-              el.removeAttribute("hidden");
-              el.style.display = "";
-              el.setAttribute("aria-hidden", "false");
-            } else {
-              el.setAttribute("hidden", "");
-              el.style.display = "none";
-              el.setAttribute("aria-hidden", "true");
-            }
-          });
-        }
-
-        const isKO = lang === "ko";
-        btnKO?.setAttribute("aria-pressed", String(isKO));
-        btnEN?.setAttribute("aria-pressed", String(!isKO));
-        localStorage.setItem(LS_KEY, lang);
-      }
-
-      btnKO?.addEventListener("click", () => setLang("ko"));
-      btnEN?.addEventListener("click", () => setLang("en"));
-
-      setLang(detectInitialLang());
+      const I18N = window.NFD_PAGE_I18N;
+      window.NFDSiteI18n.init({
+        dict: I18N,
+        titleKey: "page.title"
+      });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>

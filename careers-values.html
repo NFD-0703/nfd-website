@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers - Our Values - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/site-ui.css" />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
+        --ink: #111;
+        --muted: #5d6470;
+        --ring: #ececec;
+      }
+
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      .lang-toggle .lang-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        background: transparent;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .lang-toggle .lang-btn[aria-pressed="true"] {
+        background: var(--highlight-color);
+        color: #0b1020;
+        border-color: transparent;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, #fff 0%, #f8f8f8 55%, #f1f4f4 100%);
+      }
+
+      .navbar {
+        background-color: #000;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff !important;
+      }
+
+      .navbar-nav {
+        gap: 2.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link.active::before {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: var(--highlight-color);
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .navbar-nav .dropdown-toggle::after {
+        margin-left: 0.45rem;
+        vertical-align: 0.18em;
+      }
+
+      .navbar-nav .dropdown-toggle.active::before {
+        display: none;
+      }
+
+      .navbar-nav .dropdown-menu {
+        background-color: #111;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 0.5rem;
+        min-width: 12rem;
+      }
+
+      .navbar-nav .dropdown-item {
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 0.65rem 0.85rem;
+      }
+
+      .navbar-nav .dropdown-item:hover,
+      .navbar-nav .dropdown-item:focus {
+        background-color: var(--highlight-color);
+        color: #0b1020;
+      }
+
+      .navbar-nav .dropdown-item.active {
+        background-color: rgba(80, 199, 210, 0.18);
+        color: #dffbff;
+      }
+
+      .navbar-nav .dropdown-menu:hover .dropdown-item.active:not(:hover) {
+        background-color: transparent;
+        color: #fff;
+      }
+
+
+      .hero {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 4rem 1.5rem 3.25rem;
+      }
+
+      .hero h1 {
+        display: inline-block;
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin: 0;
+        padding-bottom: 0.65rem;
+        border-bottom: 3px solid var(--highlight-color);
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 1.2rem auto 0;
+        font-size: 1.2rem;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .values-section {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 4.75rem 2.5rem 6rem;
+      }
+
+      .values-intro {
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+
+      .values-intro h2 {
+        font-size: 2.35rem;
+        font-weight: 800;
+        margin-bottom: 0.85rem;
+      }
+
+      .values-intro p {
+        font-size: 1.15rem;
+        color: var(--muted);
+        margin: 0 auto;
+        max-width: 760px;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 2.25rem;
+      }
+
+      .value-card {
+        position: relative;
+        min-height: 470px;
+        padding: 4rem 2rem 8.5rem;
+        text-align: center;
+        border-radius: 28px;
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        box-shadow: 0 20px 40px rgba(17, 24, 39, 0.08);
+        overflow: visible;
+        isolation: isolate;
+      }
+
+      .value-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        border-radius: 28px 28px 0 0;
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .value-card--ownership {
+        background: linear-gradient(180deg, #eff3f4 0%, #e6ebee 100%);
+      }
+
+      .value-card--ownership::before {
+        background: linear-gradient(90deg, #4d6978 0%, #8eb6c4 100%);
+      }
+
+      .value-card--growth {
+        background: linear-gradient(180deg, #edf8f8 0%, #dfefef 100%);
+      }
+
+      .value-card--growth::before {
+        background: linear-gradient(90deg, #50c7d2 0%, #9be0e6 100%);
+      }
+
+      .value-card--execution {
+        background: linear-gradient(180deg, #f5f1eb 0%, #ece4d9 100%);
+      }
+
+      .value-card--execution::before {
+        background: linear-gradient(90deg, #b57b3e 0%, #e7bd80 100%);
+      }
+
+      .value-card--collaboration {
+        background: linear-gradient(180deg, #edf4f8 0%, #e2edf4 100%);
+      }
+
+      .value-card--collaboration::before {
+        background: linear-gradient(90deg, #5f8fb1 0%, #a5c6da 100%);
+      }
+
+      .value-card h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0 0 3rem;
+      }
+
+      .value-card p {
+        font-size: 1rem;
+        line-height: 1.55;
+        color: #20242c;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .value-card__icon {
+        position: absolute;
+        left: 50%;
+        bottom: -58px;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid var(--ring);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(8px);
+        display: grid;
+        place-items: center;
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .value-card__icon img {
+        width: 62px;
+        height: 62px;
+        object-fit: contain;
+      }
+
+      @media (max-width: 1200px) {
+        .values-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 4.5rem 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 80%;
+        }
+
+        .hero {
+          padding: 3.25rem 1.25rem 2.75rem;
+        }
+
+        .hero h1 {
+          font-size: 2.1rem;
+        }
+
+        .values-section {
+          padding: 3.5rem 1.25rem 5rem;
+        }
+
+        .values-grid {
+          grid-template-columns: 1fr;
+          gap: 4.75rem;
+        }
+
+        .value-card {
+          min-height: 400px;
+          padding: 3rem 1.5rem 7.5rem;
+        }
+
+        .value-card h3 {
+          margin-bottom: 2rem;
+        }
+
+        .navbar-nav {
+          gap: 1rem;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 1rem;
+        }
+
+        .navbar-nav .nav-item:last-child {
+          margin-bottom: 0.75rem;
+        }
+
+        .navbar .lang-toggle {
+          margin-top: 0.75rem;
+          padding-top: 0.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.25);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-nav"></div>
+
+    <header class="hero">
+      <h1 data-i18n="hero.title">Careers</h1>
+      <p data-i18n="hero.subtitle">
+        We are building a team that can lead complex data center development
+        with clarity, discipline, and strong execution.
+      </p>
+    </header>
+
+    <main class="values-section">
+      <div class="values-intro">
+        <h2 data-i18n="values.heading">Our Values</h2>
+        <p data-i18n="values.subtitle">
+          Professionals shaping the future of the data center industry.
+        </p>
+      </div>
+
+      <section class="values-grid" aria-label="NFD core values">
+        <article class="value-card value-card--ownership">
+          <h3 data-i18n="value.1.title">Ownership</h3>
+          <p data-i18n="value.1.body">
+            Professionals who take ownership and responsibility to achieve
+            company goals.
+          </p>
+          <div class="value-card__icon" aria-hidden="true">
+            <img src="images/icon 08-1.jpg" alt="" />
+          </div>
+        </article>
+
+        <article class="value-card value-card--growth">
+          <h3 data-i18n="value.2.title">Continuous Growth</h3>
+          <p data-i18n="value.2.body">
+            Professionals who continuously develop their expertise through
+            learning and experience.
+          </p>
+          <div class="value-card__icon" aria-hidden="true">
+            <img src="images/icon 09-1.jpg" alt="" />
+          </div>
+        </article>
+
+        <article class="value-card value-card--execution">
+          <h3 data-i18n="value.3.title">Execution</h3>
+          <p data-i18n="value.3.body">
+            Professionals who focus on both process and results to deliver the
+            best results.
+          </p>
+          <div class="value-card__icon" aria-hidden="true">
+            <img src="images/icon 10-1.jpg" alt="" />
+          </div>
+        </article>
+
+        <article class="value-card value-card--collaboration">
+          <h3 data-i18n="value.4.title">Collaboration</h3>
+          <p data-i18n="value.4.body">
+            Professionals who build strong teamwork through open communication
+            and collaboration.
+          </p>
+          <div class="value-card__icon" aria-hidden="true">
+            <img src="images/icon 11-1.jpg" alt="" />
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="shared/site-ui.js"></script>
+    <script src="shared/site-i18n.js"></script>
+    <script src="data/i18n/careers-values.js"></script>
+    <script>
+      const I18N = window.NFD_PAGE_I18N;
+      window.NFDSiteI18n.init({
+        dict: I18N,
+        titleKey: "page.title"
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

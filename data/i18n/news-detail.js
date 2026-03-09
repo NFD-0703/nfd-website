@@ -1,0 +1,26 @@
+window.NFD_PAGE_I18N = {
+        en: {
+          "page.title": "News",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.news": "News",
+          "nav.careers": "Careers",
+          "nav.careers.values": "Our Values",
+          "nav.careers.jobs": "Careers",
+          "nav.contact": "Contact",
+          "pm.heading": "News",
+        },
+        ko: {
+          "page.title": "뉴스 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.news": "뉴스",
+          "nav.careers": "인재채용",
+          "nav.careers.values": "인재상",
+          "nav.careers.jobs": "인재채용",
+          "nav.contact": "문의하기",
+          "pm.heading": "뉴스",
+        },
+      };

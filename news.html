@@ -12,6 +12,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="shared/site-ui.css" />
     <style>
       :root {
         --highlight-color: #50c7d2;
@@ -46,7 +47,7 @@
         position: relative;
       }
 
-      .navbar-nav .nav-link.active::after {
+      .navbar-nav .nav-link.active::before {
         content: "";
         display: block;
         height: 4px;
@@ -57,6 +58,47 @@
         left: 0;
         border-radius: 2px;
       }
+
+      .navbar-nav .dropdown-toggle::after {
+        margin-left: 0.45rem;
+        vertical-align: 0.18em;
+      }
+
+      .navbar-nav .dropdown-toggle.active::before {
+        display: none;
+      }
+
+      .navbar-nav .dropdown-menu {
+        background-color: #111;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 0.5rem;
+        min-width: 12rem;
+      }
+
+      .navbar-nav .dropdown-item {
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 0.65rem 0.85rem;
+      }
+
+      .navbar-nav .dropdown-item:hover,
+      .navbar-nav .dropdown-item:focus {
+        background-color: var(--highlight-color);
+        color: #0b1020;
+      }
+
+      .navbar-nav .dropdown-item.active {
+        background-color: rgba(80, 199, 210, 0.18);
+        color: #dffbff;
+      }
+
+      .navbar-nav .dropdown-menu:hover .dropdown-item.active:not(:hover) {
+        background-color: transparent;
+        color: #fff;
+      }
+
 
       .header-section {
         background-color: #000;
@@ -195,83 +237,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="aboutUs.html" data-i18n="nav.about"
-                >About Us</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html" data-i18n="nav.services"
-                >Services</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="our-work.html" data-i18n="nav.ourwork"
-                >Our Work</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="news.html" data-i18n="nav.news"
-                >News</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="careers.html" data-i18n="nav.careers"
-                >Careers</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
-          <div
-            class="lang-toggle ms-lg-3"
-            role="group"
-            aria-label="Language selector"
-          >
-            <button
-              id="btnKO"
-              type="button"
-              class="lang-btn"
-              data-lang="ko"
-              aria-pressed="false"
-            >
-              KO
-            </button>
-            <button
-              id="btnEN"
-              type="button"
-              class="lang-btn"
-              data-lang="en"
-              aria-pressed="true"
-            >
-              EN
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <div id="site-nav"></div>
 
     <!-- Header -->
     <div class="header-section">
@@ -317,74 +283,15 @@
         </a>
       </div>
     </div>
+    <script src="shared/site-ui.js"></script>
+    <script src="shared/site-i18n.js"></script>
+    <script src="data/i18n/news.js"></script>
     <script>
-      const I18N = {
-        en: {
-          "page.title": "News",
-          "nav.about": "About Us",
-          "nav.services": "Services",
-          "nav.ourwork": "Our Work",
-          "nav.news": "News",
-          "nav.careers": "Careers",
-          "nav.contact": "Contact",
-          "pm.heading": "News",
-          "news.title1":
-            "NFD Opens Official LinkedIn Page to Share Insights, Updates, and Build Community Connections",
-          "news.title2":
-            "New 80MW Data Center Coming to Greater Seoul: Warburg Pincus Acquires Site",
-        },
-        ko: {
-          "page.title": "프로젝트 매니지먼트 - NFD",
-          "nav.about": "회사소개",
-          "nav.services": "사업영역",
-          "nav.ourwork": "주요 프로젝트",
-          "nav.news": "뉴스",
-          "nav.careers": "인재채용",
-          "nav.contact": "문의하기",
-          "pm.heading": "뉴스",
-          "news.title1":
-            "NFD, 공식 LinkedIn 페이지 개설 – 인사이트, 소식 공유 및 커뮤니티 연결 강화",
-          "news.title2":
-            "80MW 규모 데이터 센터, 수도권에 신규 조성: 워버그 핀커스 부지 인수",
-        },
-      };
-
-      const LS_KEY = "siteLang";
-      const btnKO = document.getElementById("btnKO");
-      const btnEN = document.getElementById("btnEN");
-      const TRANSLATE_BODY = true;
-
-      function detectInitialLang() {
-        const saved = localStorage.getItem(LS_KEY);
-        if (saved === "ko" || saved === "en") return saved;
-        const nav = (navigator.language || "en").toLowerCase();
-        return nav.startsWith("ko") ? "ko" : "en";
-      }
-
-      function setLang(lang) {
-        const dict = I18N[lang] || I18N.en;
-
-        if (TRANSLATE_BODY) {
-          document.querySelectorAll("[data-i18n]").forEach((el) => {
-            const key = el.getAttribute("data-i18n");
-            const val = dict[key];
-            if (!val) return;
-            el.innerHTML = val.replace(/\n/g, "<br>");
-          });
-          if (dict["page.title"]) document.title = dict["page.title"];
-          document.documentElement.setAttribute("lang", lang);
-        }
-
-        const isKO = lang === "ko";
-        btnKO?.setAttribute("aria-pressed", String(isKO));
-        btnEN?.setAttribute("aria-pressed", String(!isKO));
-        localStorage.setItem(LS_KEY, lang);
-      }
-
-      btnKO?.addEventListener("click", () => setLang("ko"));
-      btnEN?.addEventListener("click", () => setLang("en"));
-
-      setLang(detectInitialLang());
+      const I18N = window.NFD_PAGE_I18N;
+      window.NFDSiteI18n.init({
+        dict: I18N,
+        titleKey: "page.title"
+      });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>

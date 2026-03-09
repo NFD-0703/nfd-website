@@ -1,0 +1,38 @@
+window.NFD_PAGE_I18N = {
+        en: {
+          "page.title": "Our Work - NFD",
+          "nav.about": "About Us",
+          "nav.services": "Services",
+          "nav.ourwork": "Our Work",
+          "nav.news": "News",
+          "nav.careers": "Careers",
+          "nav.careers.values": "Our Values",
+          "nav.careers.jobs": "Careers",
+          "nav.contact": "Contact",
+          "work.heading": "Our Work",
+          "work.subtitle":
+            "Delivering high-performance data center solutions — our portfolio reflects precision, reliability, and innovation.",
+          "work.p1.caption": "Confidential Data Center Colocation Company",
+          "work.p1.location": "Yongin, South Korea",
+          "work.p2.caption": "Confidential Data Center Colocation Company",
+          "work.p2.location": "Ansan, South Korea",
+        },
+        ko: {
+          "page.title": "포트폴리오 - NFD",
+          "nav.about": "회사소개",
+          "nav.services": "사업영역",
+          "nav.ourwork": "주요 프로젝트",
+          "nav.news": "뉴스",
+          "nav.careers": "인재채용",
+          "nav.careers.values": "인재상",
+          "nav.careers.jobs": "인재채용",
+          "nav.contact": "문의하기",
+          "work.heading": "주요 프로젝트",
+          "work.subtitle":
+            "고성능 데이터센터 솔루션을 제공하며,\n 저희의 포트폴리오는 정밀성, 신뢰성, 혁신성을 반영합니다.",
+          "work.p1.caption": "Confidential Data Center Colocation Company",
+          "work.p1.location": "용인, 대한민국",
+          "work.p2.caption": "Confidential Data Center Colocation Company",
+          "work.p2.location": "안산, 대한민국",
+        },
+      };
