@@ -90,7 +90,7 @@
     document.body.dataset.page = page === "index.html" ? "index" : "default";
 
     mount.innerHTML = `
-      <nav class="navbar navbar-expand-lg navbar-dark site-navbar site-navbar--${meta.theme}">
+      <nav class="navbar navbar-expand-xl navbar-dark site-navbar site-navbar--${meta.theme}">
         <div class="container-fluid">
           <a class="navbar-brand fw-bold" href="index.html"> NFD </a>
           <button
