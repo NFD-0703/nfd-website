@@ -132,7 +132,8 @@
         background: #000;
         color: #fff;
         text-align: center;
-        padding: 4rem 1.5rem 3.25rem;
+        margin-top: calc(-1 * (var(--site-nav-height) - 2px));
+        padding: calc(4rem + var(--site-nav-height) - 2px) 1.5rem 3.25rem;
       }
 
       .hero h1 {
@@ -289,13 +290,19 @@
         }
       }
 
+      @media (max-width: 1399.98px) {
+        .hero {
+          padding: calc(3.25rem + var(--site-nav-height) - 2px) 1.25rem 2.75rem;
+        }
+      }
+
       @media (max-width: 768px) {
         html {
           font-size: 80%;
         }
 
         .hero {
-          padding: 3.25rem 1.25rem 2.75rem;
+          padding: calc(3.25rem + var(--site-nav-height) - 2px) 1.25rem 2.75rem;
         }
 
         .hero h1 {

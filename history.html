@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/site-ui.css" />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        color: #111;
+        background: linear-gradient(180deg, #000 0, #000 280px, #f5f5f5 280px, #fff 100%);
+      }
+
+      .hero {
+        margin-top: calc(-1 * (var(--site-nav-height) - 2px));
+        padding: calc(4rem + var(--site-nav-height) - 2px) 1.5rem 3rem;
+        color: #fff;
+        text-align: center;
+      }
+
+      .hero h1 {
+        display: inline-block;
+        margin: 0;
+        padding-bottom: 0.65rem;
+        font-size: 2.6rem;
+        font-weight: 800;
+        border-bottom: 3px solid var(--highlight-color);
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 1.2rem auto 0;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .timeline {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 4rem 2rem 6rem;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid #dfe5ea;
+      }
+
+      .timeline-item__year {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1f3a78;
+      }
+
+      .timeline-item__body h2 {
+        margin: 0 0 0.45rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .timeline-item__body p {
+        margin: 0;
+        line-height: 1.8;
+        white-space: pre-line;
+        word-break: keep-all;
+      }
+
+      @media (max-width: 768px) {
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-nav"></div>
+
+    <header class="hero">
+      <h1 data-i18n="page.heading">History</h1>
+      <p data-i18n="page.subtitle">
+        The path we have built through experience, trust, and execution.
+      </p>
+    </header>
+
+    <main class="timeline">
+      <section class="timeline-item">
+        <div class="timeline-item__year">2022</div>
+        <div class="timeline-item__body">
+          <h2 data-i18n="history.1.title">Company Founded</h2>
+          <p data-i18n="history.1.body">
+            NFD Korea was established to provide specialized consulting and
+            execution support for the data center industry.
+          </p>
+        </div>
+      </section>
+      <section class="timeline-item">
+        <div class="timeline-item__year">2023</div>
+        <div class="timeline-item__body">
+          <h2 data-i18n="history.2.title">Capability Expansion</h2>
+          <p data-i18n="history.2.body">
+            We expanded our services across development strategy, project
+            management, engineering consulting, and operational support.
+          </p>
+        </div>
+      </section>
+      <section class="timeline-item">
+        <div class="timeline-item__year">Today</div>
+        <div class="timeline-item__body">
+          <h2 data-i18n="history.3.title">Sustainable Growth</h2>
+          <p data-i18n="history.3.body">
+            We continue building long-term partnerships and shaping the future
+            of digital infrastructure with our clients and partners.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="shared/site-ui.js"></script>
+    <script src="shared/site-i18n.js"></script>
+    <script src="data/i18n/history.js"></script>
+    <script>
+      const I18N = window.NFD_PAGE_I18N;
+      window.NFDSiteI18n.init({
+        dict: I18N,
+        titleKey: "page.title"
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

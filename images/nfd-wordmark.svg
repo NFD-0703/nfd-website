@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="720" viewBox="0 0 1800 720" role="img" aria-labelledby="title desc">
+  <title id="title">NFD Wordmark</title>
+  <desc id="desc">Crisp vector NFD wordmark based on the site reference design.</desc>
+  <rect width="1800" height="720" fill="#ffffff" fill-opacity="0" />
+  <g fill="#253f84" stroke="#0f1f57" stroke-width="10" stroke-linejoin="miter">
+    <path d="M120 120h96l255 426V120h95v480H470L215 175v425h-95z" />
+    <path d="M700 120h108v480H700z" />
+    <path d="M888 120h386v88H996v121h260v84H996v187H888z" />
+    <path d="M1420 120h193c81 0 145 23 193 69 54 54 81 125 81 171 0 115-28 192-84 234-48 36-112 54-190 54h-193zm108 88v304h85c53 0 94-14 123-42 31-30 47-81 47-152 0-72-16-123-48-152-29-26-70-40-122-40z" />
+  </g>
+</svg>

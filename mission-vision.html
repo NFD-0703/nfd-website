@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mission & Vision - NFD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/site-ui.css" />
+    <style>
+      :root {
+        --highlight-color: #50c7d2;
+        --navy-deep: #344b82;
+        --navy-mid: #4479af;
+        --navy-light: #d7e6f6;
+        --message-blue: #2f6ca7;
+        --text-ink: #1c1c1c;
+        --line: #cfd4db;
+        --band: #f1f1f1;
+        --surface: #fbfbfc;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        color: var(--text-ink);
+        background:
+          linear-gradient(180deg, #fff 0%, #fbfbfc 58%, #f5f7fa 100%);
+      }
+
+      .page-hero {
+        margin-top: calc(-1 * (var(--site-nav-height) - 2px));
+        padding: calc(5.2rem + var(--site-nav-height) - 2px) 1.5rem 4rem;
+        background:
+          linear-gradient(180deg, #f4f4f4 0%, #efefef 100%);
+        text-align: center;
+      }
+
+      .page-hero h1 {
+        margin: 0;
+        font-size: 2.9rem;
+        font-weight: 800;
+        color: #111;
+        letter-spacing: -0.02em;
+      }
+
+      .mission-layout {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 3rem 2.5rem 6rem;
+      }
+
+      .mission-flow {
+        display: grid;
+        grid-template-columns: 340px minmax(0, 1fr) 110px 280px;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .mission-stack {
+        position: relative;
+        min-height: 560px;
+      }
+
+      .mission-bubble {
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.15rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow: 0 20px 40px rgba(28, 45, 83, 0.14);
+      }
+
+      .mission-bubble--mission {
+        top: 0;
+        left: 6px;
+        background: var(--navy-deep);
+        color: #fff;
+      }
+
+      .mission-bubble--vision {
+        top: 152px;
+        left: 70px;
+        background: var(--navy-mid);
+        color: #fff;
+      }
+
+      .mission-bubble--value {
+        top: 304px;
+        left: 136px;
+        background: var(--navy-light);
+        color: #1a2538;
+      }
+
+      html[lang="ko"] .mission-item {
+        padding: 2rem 0 3.5rem;
+      }
+
+      html[lang="ko"] .mission-item + .mission-item {
+        padding-top: 3.5rem;
+      }
+
+      html[lang="ko"] .mission-item__title {
+        font-size: 1.84rem;
+      }
+
+      html[lang="ko"] .mission-item__body {
+        font-size: 1.12rem;
+        line-height: 1.96;
+      }
+
+      .mission-content {
+        max-width: 760px;
+        padding-right: 0.25rem;
+        padding-left: 0.5rem;
+      }
+
+      .mission-item {
+        padding: 0.9rem 0 1.7rem;
+      }
+
+      .mission-item + .mission-item {
+        border-top: 1px solid var(--line);
+        padding-top: 1.7rem;
+      }
+
+      .mission-item__title {
+        margin: 0 0 0.75rem;
+        font-size: 1.72rem;
+        font-weight: 500;
+        line-height: 1.32;
+        color: #264577;
+        word-break: keep-all;
+      }
+
+      .mission-item__title--accent {
+        color: #15a6f0;
+      }
+
+      .mission-item__body {
+        margin: 0;
+        font-size: 1.04rem;
+        line-height: 1.72;
+        color: #4a4a4a;
+        word-break: keep-all;
+      }
+
+      .mission-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.05rem;
+        transform: translateX(-0.15rem);
+      }
+
+      .mission-arrow span {
+        font-size: 4.5rem;
+        line-height: 1;
+        font-weight: 700;
+      }
+
+      .mission-arrow span:nth-child(-n + 4) {
+        color: #d6e8f3;
+      }
+
+      .mission-arrow span:nth-child(n + 5) {
+        color: #2f7aa8;
+      }
+
+      .mission-message {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 32% 28%, #3a79b4 0%, #2f6ca7 58%, #285d90 100%);
+        color: #fff;
+        box-shadow: 0 24px 44px rgba(38, 83, 130, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1.9rem;
+      }
+
+      .mission-message p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        white-space: pre-line;
+        word-break: keep-all;
+      }
+
+      html[lang="ko"] .mission-message p {
+        font-size: 1.24rem;
+        line-height: 1.62;
+      }
+
+      @media (max-width: 1400px) {
+        .mission-flow {
+          grid-template-columns: 220px minmax(0, 1fr);
+          gap: 2rem;
+        }
+
+        .mission-arrow,
+        .mission-message {
+          grid-column: 2;
+        }
+
+        .mission-arrow {
+          justify-content: flex-start;
+          margin-top: -0.5rem;
+        }
+
+        .mission-message {
+          max-width: 320px;
+        }
+
+        .mission-stack {
+          min-height: 500px;
+        }
+      }
+
+      @media (max-width: 1399.98px) {
+        .page-hero {
+          padding: calc(3.8rem + var(--site-nav-height) - 2px) 1rem 2.7rem;
+        }
+
+        .page-hero h1 {
+          font-size: 2.3rem;
+        }
+
+        .mission-layout {
+          padding: 2rem 1rem 4rem;
+        }
+
+        .mission-flow {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+        }
+
+        .mission-stack {
+          min-height: 220px;
+          display: flex;
+          gap: 0.75rem;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .mission-bubble {
+          position: static;
+          width: 132px;
+          height: 132px;
+          font-size: 0.95rem;
+        }
+
+        .mission-content,
+        .mission-arrow,
+        .mission-message {
+          grid-column: auto;
+        }
+
+        .mission-content {
+          width: 100%;
+          max-width: 640px;
+          margin: 0 auto;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .mission-item {
+          padding: 0.5rem 0 1.5rem;
+        }
+
+        .mission-item + .mission-item {
+          padding-top: 1.5rem;
+        }
+
+        .mission-item__title {
+          font-size: 1.45rem;
+        }
+
+        .mission-item__body {
+          font-size: 1rem;
+        }
+
+        .mission-arrow {
+          justify-content: center;
+        }
+
+        .mission-arrow span {
+          font-size: 4rem;
+        }
+
+        .mission-message {
+          max-width: 320px;
+          margin: 0 auto;
+          padding: 2rem;
+        }
+
+        .mission-message p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-nav"></div>
+
+    <header class="page-hero">
+      <h1 data-i18n="page.heading">Mission & Vision</h1>
+    </header>
+
+    <main class="mission-layout">
+      <section class="mission-flow" aria-label="Mission and vision flow">
+        <div class="mission-stack" aria-hidden="true">
+          <div class="mission-bubble mission-bubble--mission" data-i18n="bubble.mission">
+            Mission
+          </div>
+          <div class="mission-bubble mission-bubble--vision" data-i18n="bubble.vision">
+            Vision
+          </div>
+          <div class="mission-bubble mission-bubble--value" data-i18n="bubble.value">
+            Value
+          </div>
+        </div>
+
+        <div class="mission-content">
+          <article class="mission-item">
+            <h2 class="mission-item__title" data-i18n="item.1.title">
+              Supporting the successful delivery of digital infrastructure.
+            </h2>
+            <p class="mission-item__body" data-i18n="item.1.body">
+              We analyze client needs with precision and provide the most
+              effective solutions.
+            </p>
+          </article>
+
+          <article class="mission-item">
+            <h2 class="mission-item__title" data-i18n="item.2.title">
+              Building scalable and sustainable data center platforms.
+            </h2>
+            <p class="mission-item__body" data-i18n="item.2.body">
+              With expertise and execution capability, we lead the next wave of
+              digital infrastructure.
+            </p>
+          </article>
+
+          <article class="mission-item">
+            <h2 class="mission-item__title mission-item__title--accent" data-i18n="item.3.title">
+              Expertise · Partnership · Innovation · Sustainability
+            </h2>
+            <p class="mission-item__body" data-i18n="item.3.body">
+              Through advanced knowledge and close collaboration, we create
+              innovative and sustainable value.
+            </p>
+          </article>
+        </div>
+
+        <div class="mission-arrow" aria-hidden="true">
+          <span>&rsaquo;</span>
+          <span>&rsaquo;</span>
+          <span>&rsaquo;</span>
+          <span>&rsaquo;</span>
+          <span>&rsaquo;</span>
+          <span>&rsaquo;</span>
+        </div>
+
+        <div class="mission-message">
+          <p data-i18n="message.body">
+            Backed by accumulated experience and a global network, we support
+            our clients in building successful digital infrastructure.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="shared/site-ui.js"></script>
+    <script src="shared/site-i18n.js"></script>
+    <script src="data/i18n/mission-vision.js"></script>
+    <script>
+      const I18N = window.NFD_PAGE_I18N;
+      window.NFDSiteI18n.init({
+        dict: I18N,
+        titleKey: "page.title"
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

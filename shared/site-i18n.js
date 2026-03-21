@@ -31,7 +31,7 @@
     });
   }
 
-  function init(config) {
+  async function init(config) {
     const {
       dict,
       titleKey = "page.title",
@@ -41,7 +41,8 @@
       onAfterSetLang,
     } = config;
 
-    function setLang(lang) {
+    async function setLang(lang) {
+      await window.NFDSite.ready;
       const currentDict = dict[lang] || dict.en;
 
       translateElements(currentDict, { mode, htmlKeys });
@@ -56,8 +57,9 @@
       }
     }
 
+    await window.NFDSite.ready;
     window.NFDSite.bindLanguageButtons(setLang);
-    setLang(window.NFDSite.detectInitialLang());
+    await setLang(window.NFDSite.detectInitialLang());
 
     return { setLang };
   }

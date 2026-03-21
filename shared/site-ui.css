@@ -1,9 +1,26 @@
 :root {
   --highlight-color: #50c7d2;
+  --site-nav-height: 96px;
+}
+
+#site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1100;
+}
+
+body[data-page="default"] #site-nav {
+  background: #000;
 }
 
 #site-nav .site-navbar {
+  position: relative;
+  width: 100%;
   padding: 1rem 2rem;
+  box-shadow: none;
 }
 
 #site-nav .site-navbar--solid {
@@ -23,6 +40,10 @@
 
 body[data-page="index"] #site-nav .navbar-brand {
   font-size: 1.6rem;
+}
+
+body[data-page="default"] {
+  padding-top: calc(var(--site-nav-height) - 2px);
 }
 
 #site-nav .navbar-nav {
@@ -138,7 +159,11 @@ body[data-page="index"] #site-nav .navbar-brand {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-@media (max-width: 1199.98px) {
+@media (max-width: 1399.98px) {
+  :root {
+    --site-nav-height: 88px;
+  }
+
   #site-nav .navbar-nav {
     gap: 1rem;
   }

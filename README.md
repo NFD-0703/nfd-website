@@ -25,7 +25,7 @@ Each public page remains at the project root to preserve existing URLs and SEO.
 - [`shared/site-ui.css`](/Users/junchollee/workspace/nfd-website/shared/site-ui.css)
   Shared navbar and common UI styling
 - [`shared/site-ui.js`](/Users/junchollee/workspace/nfd-website/shared/site-ui.js)
-  Shared navbar rendering, language toggle UI, active menu state
+  Shared navbar rendering, menu data, language toggle UI, active menu state
 - [`shared/site-i18n.js`](/Users/junchollee/workspace/nfd-website/shared/site-i18n.js)
   Shared page i18n initializer and DOM translation helper
 
@@ -56,15 +56,29 @@ Each page contains:
 ```
 
 The shared navbar is rendered by `shared/site-ui.js`.
+There is no separate HTML partial for the header. The source of truth lives in one file.
 
 If you need to change:
 
 - menu order
+- dropdown items
+- temporarily hide a menu item
 - active menu rules
 - careers dropdown behavior
 - language toggle markup
 
 edit `shared/site-ui.js` and, if needed, `shared/site-ui.css`.
+
+Key nav config lives in:
+
+- `ABOUT_ITEMS`
+- `CAREERS_ITEMS`
+- `NAV_ITEMS`
+
+Example:
+
+- set `visible: false` to hide a dropdown item without deleting it
+- update `activePages` to control which pages activate a top-level menu
 
 ### Translations
 
@@ -102,6 +116,8 @@ window.NFDSiteI18n.init({
 });
 ```
 
+`window.NFDSiteI18n.init(...)` returns a promise because it waits for the shared nav to render before applying common UI state.
+
 Pages with custom behavior can use `onAfterSetLang`.
 
 Examples:
@@ -125,7 +141,7 @@ When adding a new page, follow this order.
    `new-page.html` -> `data/i18n/new-page.js`
 5. In the HTML, load that page i18n file and initialize `window.NFDSiteI18n.init(...)`.
 6. If the page has custom language-specific rendering, use `onAfterSetLang`.
-7. If the page should appear in top navigation logic, update `shared/site-ui.js`.
+7. If the page should appear in top navigation logic, update the menu data in `shared/site-ui.js`.
 8. If the page is public and indexable, add it to `sitemap.xml`.
 
 ## Rules For Editing Existing Pages
@@ -139,6 +155,8 @@ When adding a new page, follow this order.
 ## When To Update Which File
 
 - Change shared nav/menu behavior:
+  `shared/site-ui.js`
+- Change nav items or temporary visibility:
   `shared/site-ui.js`
 - Change shared nav appearance:
   `shared/site-ui.css`
@@ -168,5 +186,5 @@ Do not add:
 ## Notes
 
 - The project is intentionally still URL-flat at the HTML level.
-- Structural cleanup happens in `shared/` and `data/` first.
+- Shared structure is centralized in `shared/` and page data in `data/`.
 - Moving HTML files into folders should only happen with a deliberate redirect plan.
