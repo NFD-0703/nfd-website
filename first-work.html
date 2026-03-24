@@ -99,7 +99,10 @@
       .hero {
         background: url("images/07 Our Work BG.webp") no-repeat center center;
         background-size: cover;
-        height: 200px;
+        margin-top: calc(-1 * (var(--site-nav-height) - 2px));
+        height: calc(200px + var(--site-nav-height) - 2px);
+        padding-top: calc(var(--site-nav-height) - 2px);
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
